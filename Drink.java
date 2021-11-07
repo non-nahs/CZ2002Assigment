@@ -1,6 +1,7 @@
 public class Drink extends MenuItem {
 
-	private char size;
-	private int qty;
+	public Drink(String n, String d, double p){
+		super(n,d,p);
+	}
 
 }

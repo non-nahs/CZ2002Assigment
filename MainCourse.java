@@ -1,5 +1,7 @@
 public class MainCourse extends MenuItem {
 
-	private int qty;
+	public MainCourse(String n, String d, double p){
+		super(n,d,p);
+	}
 
 }

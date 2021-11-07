@@ -1,33 +1,47 @@
+import java.util.ArrayList;
+
 public class SetPromotionPackage {
 
 	private int promotionID;
 	private String promotionName;
 	private double promotionPrice;
-	private ArrayList<MenuItems> setItems;
+	private ArrayList<MenuItem> setItems;
 
-	public void getPromotionID() {
-		// TODO - implement SetPromotionPackage.getPromotionID
-		throw new UnsupportedOperationException();
+	//use constructor to add a set under menu
+	public SetPromotionPackage(int id, String name, double price, ArrayList<MenuItem> items) {
+		promotionID = id;
+		promotionName = name;
+		promotionPrice = price;
+		setItems = items;
 	}
 
-	public void getPromotionName() {
-		// TODO - implement SetPromotionPackage.getPromotionName
-		throw new UnsupportedOperationException();
+	//getting the attributes
+	public int getPromotionID() {
+		return promotionID;
+	}
+	public String getPromotionName() {
+		return promotionName;
+	}
+	public double getPromotionPrice() {
+		return promotionPrice;
+	}
+	public ArrayList<MenuItem> getSetItems() {
+		return setItems;
 	}
 
-	public SetPromotionPackage() {
-		// TODO - implement SetPromotionPackage.SetPromotionPackage
-		throw new UnsupportedOperationException();
+	//updating the attributes (setting)
+	//ask for input in controller.
+	public void updatePromotionID(int newId){
+		promotionID = newId;
 	}
-
-	public void addSetItem() {
-		// TODO - implement SetPromotionPackage.addSetItem
-		throw new UnsupportedOperationException();
+	public void updatePromotionName(String newName){
+		promotionName = newName;
 	}
-
-	public void removeSetItem() {
-		// TODO - implement SetPromotionPackage.removeSetItem
-		throw new UnsupportedOperationException();
+	public void updatePromotionPrice(double newPrice){
+		promotionPrice = newPrice;
+	}
+	public void updateSetItems(ArrayList<MenuItem> newSetItems){
+		setItems = newSetItems;
 	}
 
 }

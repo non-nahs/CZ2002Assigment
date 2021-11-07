@@ -1,5 +1,6 @@
 public class Dessert extends MenuItem {
 
-	private int qty;
-
+	public Dessert(String n, String d, double p){
+		super(n,d,p);
+	}
 }

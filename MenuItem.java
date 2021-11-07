@@ -4,42 +4,33 @@ public abstract class MenuItem {
 	private String desc;
 	private double price;
 
-	public String getName() {
-		return this.name;
+	public MenuItem(String n, String d, double p){
+		name = n;
+		desc = d;
+		price = p;
 	}
 
-	public String getDescripton() {
-		// TODO - implement MenuItem.getDescripton
-		throw new UnsupportedOperationException();
+	public String getName(){
+		return name;
 	}
 
-	public double getPrice() {
-		return this.price;
+	public String getDescripton(){
+		return desc;
 	}
 
-	/**
-	 * 
-	 * @param name
-	 */
-	public void setName(string name) {
-		// TODO - implement MenuItem.setName
-		throw new UnsupportedOperationException();
+	public double getPrice(){
+		return price;
 	}
 
-	/**
-	 * 
-	 * @param desc
-	 */
-	public void setDescription(string desc) {
-		// TODO - implement MenuItem.setDescription
-		throw new UnsupportedOperationException();
+	public void setName(String name){
+		this.name = name;
 	}
 
-	/**
-	 * 
-	 * @param price
-	 */
-	public void setPrice(double price) {
+	public void setDescription(String desc){
+		this.desc = desc;
+	}
+
+	public void setPrice(double price){
 		this.price = price;
 	}
 
