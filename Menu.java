@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Menu {
 
@@ -33,8 +34,18 @@ public class Menu {
 		items.add(newItem);
 	}
 
+	public void removeItem(MenuItem item){
+		items.remove(item);
+		item = null;
+	}
+
 	public void addSet(SetPromotionPackage newSet){
 		sets.add(newSet);
+	}
+
+	public void removeSet(SetPromotionPackage set){
+		sets.remove(set);
+		set = null;
 	}
 
 }
