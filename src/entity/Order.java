@@ -4,10 +4,8 @@ import java.util.ArrayList;
 
 public class Order {
 
-	private ArrayList<MenuItem> order;
-	private double pretaxTotal = 0;
-
-	order = new ArrayList<MenuItem>();
+	private ArrayList<MenuItem> order  = new ArrayList<MenuItem>();
+	private double pretaxTotal;
 
 	public void viewOrder() {
 		// TODO - implement Order.viewOrder
