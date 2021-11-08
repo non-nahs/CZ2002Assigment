@@ -11,10 +11,8 @@ Group Assignment for CZ2002
 1. Go to terminal->New Terminal if there is no open terminal in your VS Code
 2. Ensure the correct local folder is open on the explorer tab(on the left, should be the first icon on top).
 3. Reinitiate git by running "git init"
-/n
-4.1 Clone respository by running "git clone [insert URL, use HTTPs for our project]
-/n
-4.2 Alternatively, run "git checkout [branch name]" if you have already an existing version to update to the latest one
+4. 1, Clone respository by running "git clone [insert URL, use HTTPs for our project]
+4. 2, Alternatively, run "git checkout [branch name]" if you have already an existing version to update to the latest one
 5. Edit changes as necessary
 6. Add files to be updated to git, in this case, just run "git add src", the changes will be automatically detected by git
 7. To check what will be committed, run "git status", the files that have been modified and to be committed will be displayed
