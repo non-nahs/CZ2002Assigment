@@ -26,4 +26,5 @@ Easiest way to correct the build path:
 5. Edit changes as necessary
 6. Add files to be updated to git, in this case, just run "git add src", the changes will be automatically detected by git
 7. To check what will be committed, run "git status", the files that have been modified and to be committed will be displayed
+8. Commit your changes by running "git commit -m "[insert update msg here]"
 8. Push your changes to git by running "git push"
