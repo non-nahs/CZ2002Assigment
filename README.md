@@ -18,13 +18,13 @@ Easiest way to correct the build path:
 
 1. Go to terminal->New Terminal if there is no open terminal in your VS Code
 2. Alternatively, you can run all commands in your Terminal/command prompt
-2. Ensure the correct local folder is open on the explorer tab(on the left, should be the first icon on top).
-3. Reinitiate git by running "git init"
-4. 1, Clone respository by running "git clone [insert URL, use HTTPs for our project]
-4. 2, Alternatively, run "git checkout [branch name]" if you have already an existing version to update to the latest one
-4. Create new branch with "git checkout -b [new branch name]" *note: you can switch to any branch name with "git checkout [branch name]" as well. USE This only if you know the commands to set the branch up and merge back to main, else just work on main.
-5. Edit changes as necessary
-6. Add files to be updated to git, in this case, just run "git add src", the changes will be automatically detected by git
-7. To check what will be committed, run "git status", the files that have been modified and to be committed will be displayed
-8. Commit your changes by running "git commit -m "[insert update msg here]"
-8. Push your changes to git by running "git push"
+3. Ensure the correct local folder is open on the explorer tab(on the left, should be the first icon on top).
+4. Reinitiate git by running "git init"
+5. 1, Clone respository by running "git clone [insert URL, use HTTPs for our project]
+6. 2, Alternatively, run "git checkout [branch name]" if you have already an existing version to update to the latest one
+7. Create new branch with "git checkout -b [new branch name]" *note: you can switch to any branch name with "git checkout [branch name]" as well. USE This only if you know the commands to set the branch up and merge back to main, else just work on main.
+8. Edit changes as necessary
+9. Add files to be updated to git, in this case, just run "git add src", the changes will be automatically detected by git
+10. To check what will be committed, run "git status", the files that have been modified and to be committed will be displayed
+11. Commit your changes by running "git commit -m "[insert update msg here]"
+12. Push your changes to git by running "git push"
