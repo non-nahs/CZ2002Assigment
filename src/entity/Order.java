@@ -13,14 +13,14 @@ public class Order {
 			System.out.println(m.getName());
 	}
 
-	public void addItem() {
+	public void addItem(MenuItem a) {
 		// TODO - implement Order.addItem
-		order.add(MenuItem);		
+		order.add(a);		
 	}
 
-	public void removeItem() {
+	public void removeItem(MenuItem a) {
 		// TODO - implement Order.removeItem
-		order.remove(MenuItem);		
+		order.remove(a);		
 	}
 
 	public void calPretaxTotal() {
