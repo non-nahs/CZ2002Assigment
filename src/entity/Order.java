@@ -4,27 +4,29 @@ import java.util.ArrayList;
 
 public class Order {
 
-	private ArrayList<MenuItem> item;
+	private ArrayList<MenuItem> order  = new ArrayList<MenuItem>();
 	private double pretaxTotal;
 
 	public void viewOrder() {
 		// TODO - implement Order.viewOrder
-		throw new UnsupportedOperationException();
+		for (MenuItem m : order)
+			System.out.println(m.getName());
 	}
 
 	public void addItem() {
 		// TODO - implement Order.addItem
-		throw new UnsupportedOperationException();
+		order.add(MenuItem);		
 	}
 
 	public void removeItem() {
 		// TODO - implement Order.removeItem
-		throw new UnsupportedOperationException();
+		order.remove(MenuItem);		
 	}
 
 	public void calPretaxTotal() {
 		// TODO - implement Order.calPretaxTotal
-		throw new UnsupportedOperationException();
+		for (MenuItem m : order)
+			this.pretaxTotal += m.getPrice();
 	}
 
 	public double getPretaxTotal() {

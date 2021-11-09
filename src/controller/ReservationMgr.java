@@ -8,6 +8,7 @@ public class ReservationMgr {
 	}
 
 	public void viewReservation() {
+		clearExpiry();
 		// TODO - implement ReservationMgr.viewReservation
 		throw new UnsupportedOperationException();
 	}
@@ -17,7 +18,7 @@ public class ReservationMgr {
 		throw new UnsupportedOperationException();
 	}
 
-	public void timeoutReservation() {
+	private void clearExpiry() {
 		// TODO - implement ReservationMgr.timeoutReservation
 		throw new UnsupportedOperationException();
 	}

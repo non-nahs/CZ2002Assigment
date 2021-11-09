@@ -23,7 +23,6 @@ public class MainMgr {
 	private static void initDisplay() {
 		MainMenuUI mainMenuUI = new MainMenuUI();
 		mainMenuUI.displayMenu();
-		System.out.println("MainMenuUI accessed");
 	}
 
 }

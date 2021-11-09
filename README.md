@@ -6,6 +6,10 @@ Group Assignment for CZ2002
 3. Create a branch to work on, try not to work on main (minimise possibility of breaking the code)
 4. Make sure there is a commit message before committing your code and update the group whenever you are done editing
 
+# To update your code to the latest version before you start working on it
+
+1. Update your code version to the latest one by running "git pull" at the correct file location. This will fetch and merge all updates done to your local repository
+
 # IMPORTANT!! ENSURE YOU HAVE THE CORRECT BUILD PATH
 Easiest way to correct the build path:
 1. Open the project in eclipse after cloning
