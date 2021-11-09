@@ -1,54 +1,82 @@
 package entity;
 
 import java.util.*;
+import java.time.*;
 
 public class OrderInvoice {
 
-	Collection<Order> orders;
-	private Date timeStamp;
-	private Order orderItems;
+	//Collection<Order> orders;
+	private LocalDate timeStamp;
+	private ArrayList<Order> totalOrders;
+	private double b4DiscTotal;   // added this for easier calculation bah....
 	private double discountTotal;
 	private double gstTax;
 	private double svcTax;
 	private double finalTotal;
+	
+	public OrderInvoice(){
+		this.timeStamp = LocalDate.now(ZoneId.systemDefault());  // dunno works or not
+		this.b4DiscTotal = 0;
+		this.discountTotal = 0;
+		this.gstTax = 0;
+		this.svcTax = 0;
+		this.finalTotal = 0;
+	} 
 
-	/**
-	 * 
-	 * @param status
-	 */
-	public double calculateDiscount(boolean status) {
-		// TODO - implement OrderInvoice.calculateDiscount
+	public LocalDate getTimeStamp(){
+		return this.timeStamp;
+	}
+
+	public void includeOrder(Order newOrder){
+		this.totalOrders.add(newOrder);
+	}
+
+	public double sumTotal(){
+		double totalSum = 0;
+		for(Order o : this.totalOrders){
+			totalSum += o.getPretaxTotal();
+		}
+		return totalSum;
+	}
+	public void calculateDiscount(boolean status) {
+		// assume member = flat 10% discount....
+		double totalSum = sumTotal();
+		double totalDisc = 0;
+		if (status){ // if memberstatus == true
+			totalDisc = 0.1 * totalSum;
+		}
+		this.discountTotal = totalDisc; 
+
 		throw new UnsupportedOperationException();
 	}
 
 	public void calculateGST() {
-		// TODO - implement OrderInvoice.calculateGST
+		// assume GST = 7%
+		this.gstTax = 0.07 * sumTotal();
 		throw new UnsupportedOperationException();
 	}
 
 	public void calculateSVC() {
-		// TODO - implement OrderInvoice.calculateSVC
+		// assume svc charge = 10%
+		this.gstTax = 0.10 * sumTotal();
 		throw new UnsupportedOperationException();
 	}
 
 	public void calculateTotal() {
-		// TODO - implement OrderInvoice.calculateTotal
+		this.finalTotal = sumTotal() + this.gstTax + this.svcTax - this.discountTotal;
 		throw new UnsupportedOperationException();
 	}
 
-	public void getDiscount() {
-		// TODO - implement OrderInvoice.getDiscount
-		throw new UnsupportedOperationException();
+	public double getDiscount() {
+		return this.discountTotal;
 	}
 
 	public double getGST() {
-		// TODO - implement OrderInvoice.getGST
-		throw new UnsupportedOperationException();
+		return this.gstTax;
 	}
 
 	public double getSVC() {
-		// TODO - implement OrderInvoice.getSVC
-		throw new UnsupportedOperationException();
+		return this.svcTax;
 	}
 
 	public double getFinalTotal() {

@@ -7,22 +7,39 @@ public class Table {
 	private int seatCapacity;
 	private boolean occupied;
 
-	/**
-	 * 
-	 * @param occupied
-	 */
-	public void bookTable(boolean occupied) {
-		// TODO - implement Table.bookTable
-		throw new UnsupportedOperationException();
+public Table(int tID, int seats){
+	this.tableID = tID;
+	this.seatCapacity = seats;
+	this.occupied = false;  //default = false
+}
+
+public int getTableID(){
+	return this.tableID;
+}
+
+public int getSeatCapacity(){
+	return this.seatCapacity;
+}
+
+public boolean getTableStatus(){
+	return this.occupied;
+}
+
+public void editTableID(int newID){
+	this.tableID = newID;
+}
+
+public void editSeatCapacity(int newCapacity){
+	this.seatCapacity = newCapacity;
+}
+
+
+public void bookTable() {  // should be no input instead; rmb change vpp also
+		this.occupied = true;
 	}
 
-	/**
-	 * 
-	 * @param occupied
-	 */
-	public void releaseTable(boolean occupied) {
-		// TODO - implement Table.releaseTable
-		throw new UnsupportedOperationException();
+public void releaseTable() { // should be no input instead; rmb change vpp also
+		this.occupied = false;
 	}
 
 }
