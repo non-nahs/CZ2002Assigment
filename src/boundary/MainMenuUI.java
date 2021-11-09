@@ -33,31 +33,19 @@ public class MainMenuUI {
 				 case 1: itemsUI.displayItems();
 				 break;
 				 case 2: 
-					 plane.showEmptySeats();
+					 promoUI.displayPromotion();
 				 break;
 				 case 3: 
-					 plane.showAssignedSeats(true);
+					 orderUI.displayOrder();
 				 break;
 				 case 4:
-					 plane.showAssignedSeats(false);
+					 reserveUI.displayReservation();
 				 break;
 				 case 5:
-					 int seatId, custId;
-					 System.out.println("Assigning Seat...");
-					 System.out.print("Please enter SeatID: ");
-					 System.out.println();
-					 seatId = sc.nextInt();
-					 System.out.print("Please enter Customer ID: ");
-					 System.out.println();
-					 custId = sc.nextInt();
-					 plane.assignSeat(seatId, custId);
+					 invoiceUI.printInvoice();
 				 break;
 				 case 6:
-					 int seatId2;
-					 System.out.print("Enter SeatID to unassign customer from: ");
-					 System.out.println();
-					 seatId2 = sc.nextInt();
-					 plane.unAssignSeat(seatId2);
+					 salesReportUI.printSaleReport();
 				 break; 
 				 case 7: System.out.println("Program terminating...");
 			}

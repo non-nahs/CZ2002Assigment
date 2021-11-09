@@ -12,4 +12,8 @@ public class ReservationUI {
 		throw new UnsupportedOperationException();
 	}
 
+	public void displayReservation() {
+		// TODO - implement ReservationUI.displayReservation
+		throw new UnsupportedOperationException();
+	}
 }
