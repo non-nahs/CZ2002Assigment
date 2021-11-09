@@ -1,35 +1,39 @@
 package entity;
-
+//runhan
 public class Customer {
 
-	private String name;
+	private String name; //first name last name
 	private boolean membership;
+	private int phoneNumber;
 
-	public void bookReservation() {
-		// TODO - implement Customer.bookReservation
-		throw new UnsupportedOperationException();
+	public Customer(String name, boolean member, int number){
+		 this.name = name;
+		 this.membership = member;
+		 this.phoneNumber = number;
 	}
 
-	public void startOrder() {
-		// TODO - implement Customer.startOrder
-		throw new UnsupportedOperationException();
+	//getters
+	public String getName(){
+		return name;
 	}
-
-	public void payBill() {
-		// TODO - implement Customer.payBill
-		throw new UnsupportedOperationException();
-	}
-
 	public boolean getMembership() {
 		return this.membership;
 	}
-
-	/**
-	 * 
-	 * @param status
-	 */
-	public void setMembership(boolean status) {
-		this.membership = status;
+	public int getPhoneNumber(){
+		return phoneNumber;
 	}
+
+	//setters
+	public void setName(String newName){
+		name = newName;
+	}
+	public void setMembership(boolean newStatus) {
+		this.membership = newStatus;
+	}
+	public void setPhoneNumber(int newNumber){
+		this.phoneNumber = newNumber; 
+	}
+
+
 
 }
