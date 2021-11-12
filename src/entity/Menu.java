@@ -4,35 +4,50 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Set;
 
+import entity.MenuItem.Category;
+
 public class Menu {
 
 	private ArrayList<MenuItem> items;
 	private ArrayList<SetPromotionPackage> sets;
 
-	public void printMenu() {
-		// TODO - implement Menu.printMenu
-		throw new UnsupportedOperationException();
+	public ArrayList<MenuItem> printMenu() {
+		MenuItem tempItem;
+
+		System.out.println("MENU");
+
+		System.out.println("Main Course:");
+		for(int i=0; i<items.size(); i++){
+			tempItem = items.get(i); //current item in the iteration
+			if(tempItem.getCategory() == Category.MAIN_COURSE){ //if item == maincourse, print
+				System.out.println(tempItem.toString(tempItem));
+			}
+		}
+
+		System.out.println("Drinks:");
+		for(int i=0; i<items.size(); i++){
+			tempItem = items.get(i);
+			if(tempItem.getCategory() == Category.DRINK){
+				System.out.println(tempItem.toString(tempItem));
+			}
+		}
+
+		System.out.println("Dessert:");
+		for(int i=0; i<items.size(); i++){
+			tempItem = items.get(i);
+			if(tempItem.getCategory() == Category.DESSERT){
+				System.out.println(tempItem.toString(tempItem));
+			}
+		}
+
+		return items;
 	}
 
+	// public String toString(MenuItem item){
+	// 	return item.getName() + item.getPrice() + "\n" + item.getDescripton();
+	// }
+
 	public void addItem(MenuItem newItem){
-		// Scanner sc = new Scanner(System.in);
-		// System.out.print("1 - Main Course");
-		// System.out.print("2 - Drink");
-		// System.out.print("3 - Dessert");
-		// System.out.print("Please choose item category: ");
-		// int category = sc.nextInt();
-
-		// System.out.print("Please enter item name: ");
-		// String name = sc.next();
-		// System.out.print("Please enter item description: ");
-		// String desc = sc.next();
-		// System.out.print("Please enter item price: ");
-		// double price = sc.nextDouble();
-
-		// switch(category){
-		// 	case 1:
-		// 		MainCourse newItem = //dk how to name it as the name in here
-		// }
 		items.add(newItem);
 	}
 
