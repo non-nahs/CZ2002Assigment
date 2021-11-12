@@ -40,7 +40,7 @@ public class ItemsUI {
 	}
 
 	private void printMenu() {
-		menu.printMenu();
+		menu.printAlaCarteMenu();
 	}
 
 	private void addMenuItem() {
@@ -88,7 +88,7 @@ public class ItemsUI {
 	}
 
 	private void rmMenuItem() {
-		/*ArrayList<MenuItem> tempMenuItems = menu.getMenuItems();
+		ArrayList<MenuItem> tempMenuItems = menu.getMenuItems();
 		MenuItem tempItem = new MenuItem();
 		String name;
 		int i = 0;
@@ -107,7 +107,7 @@ public class ItemsUI {
 				break;
 			}
 			i++;
-		}*/
+		}
 
 	}
 }
