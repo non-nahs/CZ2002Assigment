@@ -43,6 +43,7 @@ public abstract class MenuItem {
 		this.price = price;
 	}
 
+	//toString to print each item
 	public String toString(MenuItem item){
 		return name + "\t" + price + "\n" + desc;
 	}

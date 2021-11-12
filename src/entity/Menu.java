@@ -11,8 +11,13 @@ public class Menu {
 	private ArrayList<MenuItem> items;
 	private ArrayList<SetPromotionPackage> sets;
 
-	public ArrayList<MenuItem> printMenu() {
+
+	public void printMenu() {
+		//for design principles: move each print e.g. print main course to a new class, then call the classes to print here?
 		MenuItem tempItem;
+		SetPromotionPackage tempSet;
+		String name;
+		double price;
 
 		System.out.println("MENU");
 
@@ -40,7 +45,22 @@ public class Menu {
 			}
 		}
 
-		return items;
+		System.out.println("Set Promotion Packages: ");
+		ArrayList<MenuItem> tempSetItems;
+		for(int i=0; i<sets.size(); i++){
+			tempSet = sets.get(i);
+			tempSetItems = tempSet.getSetItems();
+
+			name = tempSet.getPromotionName();
+			price = tempSet.getPromotionPrice();
+			System.out.println(name + "\t" + price);
+
+			for(int j=0; j<tempSetItems.size(); j++) {
+				System.out.println(tempSetItems.get(j).getName());
+				System.out.println(tempSetItems.get(j).getDescripton());
+			}
+		}
+
 	}
 
 	// public String toString(MenuItem item){
