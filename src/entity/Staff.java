@@ -1,5 +1,6 @@
 package entity;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.nio.file.Paths;
 
@@ -7,8 +8,18 @@ public class Staff {
 
 	private int staffID;
 	private String staffName;
-	private boolean gender;
+	private boolean gender;  // false = female // true = male
 	private String jobTitle;
+
+	// constructor here
+	public Staff(int sId, String n, boolean g, String jd){
+		this.staffID = sId;
+		this.staffName = n;
+		this.gender = g;
+		this.jobTitle = jd;
+
+	}
+	// end of consructor
 
 	public void viewReservations() {
 		// TODO - implement Staff.viewReservations
@@ -72,4 +83,12 @@ public class Staff {
 		this.jobTitle = title;
 	}
 
+	public static void initStaff(){ // initialise Staffs
+		ArrayList<Staff> staffs  = new ArrayList<Staff>();
+		staffs.add(new Staff(1,"Johnathan",true,"Manager"));
+		staffs.add(new Staff(2,"Joeseph",true,"Supervisor"));
+		staffs.add(new Staff(3,"Jotarou",true,"Waiter"));
+		staffs.add(new Staff(4,"Josuke",true,"Waiter"));
+		staffs.add(new Staff(5,"Jolyne",false,"Waiter"));
+	}
 }
