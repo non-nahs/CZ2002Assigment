@@ -49,7 +49,7 @@ public class MainMenuUI {
 				 break; 
 				 case 7: System.out.println("Program terminating...");
 			}
-		} while (choice < 7);
+		} while (choice > 0 && choice < 7);
 		//throw new UnsupportedOperationException();
 	}
 
