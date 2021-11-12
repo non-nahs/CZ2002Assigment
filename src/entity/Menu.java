@@ -108,6 +108,27 @@ public class Menu {
 	}
 
 	public void removeItem(MenuItem item){
+		// first checks if item exists in a set promotion package, then removes package if it exists
+
+		int i=0, j=0;
+		ArrayList<SetPromotionPackage> tempPromoList = sets;
+		SetPromotionPackage tempPromoSet = new SetPromotionPackage();
+		MenuItem tempItem = new MenuItem();
+		while (i<tempPromoList.size()) {
+			tempPromoSet = tempPromoList.get(i);
+			ArrayList<MenuItem> tempMList = tempPromoSet.getSetItems();
+			while (j<tempMList.size()) {
+				tempItem = tempMList.get(j);
+				if (item.equals(tempItem)) {
+					removeSet(tempPromoSet);
+					System.out.println("Set " + tempPromoSet.getPromotionID() + " was removed!");
+				}
+				j++;
+			}
+			i++;
+		}
+		
+		//removes item from list
 		items.remove(item);
 		item = null;
 	}
