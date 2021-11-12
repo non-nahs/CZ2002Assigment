@@ -120,6 +120,7 @@ public class Menu {
 		sets.remove(set);
 		set = null;
 	}
+	
 
 	public ArrayList<MenuItem> getMenuItems() {
 		return items;

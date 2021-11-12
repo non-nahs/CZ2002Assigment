@@ -88,6 +88,26 @@ public class ItemsUI {
 	}
 
 	private void rmMenuItem() {
-		displayMgr.removeItem();
+		/*ArrayList<MenuItem> tempMenuItems = menu.getMenuItems();
+		MenuItem tempItem = new MenuItem();
+		String name;
+		int i = 0;
+
+		System.out.println("----------------------------------");
+		System.out.println("Please enter name of menu item");
+		System.out.println("----------------------------------");
+		sc.nextLine();
+		name = sc.nextLine();
+
+		while(i < tempMenuItems.size()) {
+			tempItem = tempMenuItems.get(i);
+			if (name.equals(tempItem.getName())) {
+				menu.removeItem(tempItem);
+				System.out.println("Item was removed!");
+				break;
+			}
+			i++;
+		}*/
+
 	}
 }
