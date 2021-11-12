@@ -1,3 +1,5 @@
+// Jasper edit
+
 package entity;
 
 import java.util.ArrayList;
@@ -12,7 +14,7 @@ public class SalesRevenue {
 	private double overallSales;
 
 
-	public SalesRevenue(){
+	public SalesRevenue(){	// constructor
 		this.salesPeriod = LocalDate.now(ZoneId.systemDefault());  // dunno works or not
 		this.overallSales = 0;
 	}
@@ -21,6 +23,9 @@ public class SalesRevenue {
 		this.salesMade.add(oi);
 	}
 
+
+
+	// 
 	public double calDaySales(LocalDate inDay,ArrayList<OrderInvoice> sales){
 		double tSales = 0;
 

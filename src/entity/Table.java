@@ -1,4 +1,6 @@
+// Jasper
 package entity;
+import java.util.ArrayList;
 
 public class Table {
 
@@ -42,4 +44,21 @@ public void releaseTable() { // should be no input instead; rmb change vpp also
 		this.occupied = false;
 	}
 
+
+public static void initTable(){
+	int i = 0;
+	ArrayList<Table> tables = new ArrayList<Table>();
+	for (i=1; i<=5;i++){
+		tables.add(new Table(i,2));	// 2pax x 5
+	}
+	for(i=6;i<=10;i++){
+		tables.add(new Table(i,4)); // 4pax x 5
+	}
+	for(i=11;i<=15;i++){ 
+		tables.add(new Table(i,8)); // 8pax x 5
+	}
+	for(i=16;i<=18;i++){
+		tables.add(new Table(i,12));// 12pax x 2
+	}
+}
 }

@@ -1,10 +1,14 @@
 package controller;
 
-public class ReservationMgr {
+import entity.Reservation;
 
-	public void createReservation() {
-		// TODO - implement ReservationMgr.createReservation
-		throw new UnsupportedOperationException();
+public class ReservationMgr {
+x
+	//public void createReservation() {
+		//return new Reservation();
+	//}
+	public Reservation createReservation(){
+		return new Reservation();
 	}
 
 	public void viewReservation() {
