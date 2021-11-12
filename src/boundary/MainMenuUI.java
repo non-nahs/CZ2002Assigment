@@ -11,6 +11,13 @@ public class MainMenuUI {
 
 	// initiate entity classes
 	public static Menu menu = new Menu();
+	public static Customer customer = new Customer();
+	//public static Order order = new Order();
+	//public static Reservation reservation = new Reservation();
+	//public static Staff staff = new Staff();
+	//public static Table table = new Table();
+	//public static SalesRevenue salesRevenue = new SaleRevenue();
+
 
 	// initiate boundary classes
 	public static ItemsUI itemsUI = new ItemsUI();

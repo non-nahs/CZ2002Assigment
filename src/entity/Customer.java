@@ -6,6 +6,12 @@ public class Customer {
 	private boolean membership;
 	private int phoneNumber;
 
+	public Customer() {
+		name = "John Smith";
+		membership = false;
+		phoneNumber = 123;
+	}
+
 	public Customer(String name, boolean member, int number){
 		 this.name = name;
 		 this.membership = member;
