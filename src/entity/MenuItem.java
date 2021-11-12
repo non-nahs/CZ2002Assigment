@@ -45,7 +45,7 @@ public class MenuItem {
 
 	//toString to print each item
 	public String toString(MenuItem item){
-		return name + "\t" + price + "\n" + desc;
+		return name + "\t\t" + price + "\n" + desc;
 	}
 
 }

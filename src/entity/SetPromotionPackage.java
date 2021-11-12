@@ -7,7 +7,7 @@ public class SetPromotionPackage {
 	private int promotionID;
 	private String promotionName;
 	private double promotionPrice;
-	private ArrayList<MenuItem> setItems;
+	private ArrayList<MenuItem> setItems = new ArrayList<MenuItem>(); 
 
 	//use constructor to add a set under menu
 	public SetPromotionPackage(int id, String name, double price, ArrayList<MenuItem> items) {
@@ -42,8 +42,18 @@ public class SetPromotionPackage {
 	public void updatePromotionPrice(double newPrice){
 		promotionPrice = newPrice;
 	}
-	public void updateSetItems(ArrayList<MenuItem> newSetItems){
-		setItems = newSetItems;
+	public void addSetItem(MenuItem newSetItem){
+		setItems.add(newSetItem);
 	}
+
+	public void removeSetItem(MenuItem setItemR){
+		setItems.remove(setItemR);
+	}
+
+
+	// public void updateSetItems(ArrayList<MenuItem> newSetItems){
+
+	// 	setItems = newSetItems;
+	// }
 
 }
