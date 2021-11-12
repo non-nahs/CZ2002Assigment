@@ -1,22 +1,23 @@
 package boundary;
 
-import entity.Order;
+import entity.*;
 import java.util.Scanner;
 
 import controller.DisplayMgr;
 
 public class MainMenuUI {
 	public static DisplayMgr displayMgr = new DisplayMgr();
+	public static Menu menu = new Menu();
 	public static ItemsUI itemsUI = new ItemsUI();
 	public static PromotionUI promoUI = new PromotionUI();
 	public static OrderUI orderUI = new OrderUI();
 	public static InvoiceUI invoiceUI = new InvoiceUI();
 	public static ReservationUI reserveUI = new ReservationUI();
 	public static SalesReportUI salesReportUI = new SalesReportUI();
-	
 
 	int choice;
 
+	
 	Scanner sc = new Scanner(System.in);
 
 	public void displayMenu() {
@@ -62,4 +63,7 @@ public class MainMenuUI {
 		//throw new UnsupportedOperationException();
 	}
 
+	public void initData() {
+		menu.initMenu();
+	}
 }

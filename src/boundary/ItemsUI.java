@@ -3,11 +3,13 @@ package boundary;
 import entity.*;
 import java.util.*;
 import controller.DisplayMgr;
+import controller.MainMgr;
 
 public class ItemsUI {
 
 	Scanner sc = new Scanner(System.in);
 	DisplayMgr displayMgr = MainMenuUI.displayMgr;
+	Menu menu = MainMenuUI.menu;
 
 	public void itemsMenu() {
 		int choice;
@@ -36,6 +38,6 @@ public class ItemsUI {
 	}
 
 	private void printMenu() {
-		System.out.println("This is the menu");
+		menu.printMenu();
 	}
 }

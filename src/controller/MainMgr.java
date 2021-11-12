@@ -1,6 +1,7 @@
 package controller;
 
 import boundary.MainMenuUI;
+import entity.*;
 
 public class MainMgr {
 
@@ -22,6 +23,7 @@ public class MainMgr {
 	
 	private static void initDisplay() {
 		MainMenuUI mainMenuUI = new MainMenuUI();
+		mainMenuUI.initData();
 		mainMenuUI.displayMenu();
 	}
 
