@@ -1,10 +1,9 @@
 package entity;
 //runhan
 import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.Set;
 
 import entity.MenuItem.Category;
+import entity.MenuItem;
 
 public class Menu {
 
@@ -66,6 +65,14 @@ public class Menu {
 	// public String toString(MenuItem item){
 	// 	return item.getName() + item.getPrice() + "\n" + item.getDescripton();
 	// }
+	public void initMenu(){
+		items.add(new MenuItem(Category.MAIN_COURSE, "Angus Beef Burger", "Brioche Bun, Angus Beef Patty, Tomato, Caramelized Onion, Cheddar, Sunny-Side Egg, Potato Fries", 18));
+		items.add(new MenuItem(Category.MAIN_COURSE, "Fish and Chips", "Battered Pollock, Cajun Potato Fries, Passionfruit Tartar Sauce", 16));
+		items.add(new MenuItem(Category.DRINK, "Passion Fashion", "Passionfruit, pineapple, mint", 6));
+		items.add(new MenuItem(Category.DRINK, "Pink Cooler", "Watermelon, orange, pineapple", 6));
+		items.add(new MenuItem(Category.DESSERT, "Carrot cake", "Carrot Sponge, Cinnamon, Cream Cheese Frosting", 6.5));
+		items.add(new MenuItem(Category.DESSERT, "Tiramisu", "Cocoa Almond Sponge, Coffee Syrup, Mascarpone Mousse", 6.5));
+	}
 
 	public void addItem(MenuItem newItem){
 		items.add(newItem);

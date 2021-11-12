@@ -31,7 +31,7 @@ public class SetPromotionPackage {
 		return setItems;
 	}
 
-	//updating the attributes (setting)
+	//updating the attributes (setters)
 	//ask for input in controller.
 	public void updatePromotionID(int newId){
 		promotionID = newId;

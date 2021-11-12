@@ -1,6 +1,6 @@
 package entity;
 
-public abstract class MenuItem {
+public class MenuItem {
 
 	private String name;
 	private String desc;
