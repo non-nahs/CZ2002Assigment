@@ -3,13 +3,17 @@ package boundary;
 import entity.Order;
 import java.util.Scanner;
 
+import controller.DisplayMgr;
+
 public class MainMenuUI {
-	ItemsUI itemsUI = new ItemsUI();
-	PromotionUI promoUI = new PromotionUI();
-	OrderUI orderUI = new OrderUI();
-	InvoiceUI invoiceUI = new InvoiceUI();
-	ReservationUI reserveUI = new ReservationUI();
-	SalesReportUI salesReportUI = new SalesReportUI();
+	public static DisplayMgr displayMgr = new DisplayMgr();
+	public static ItemsUI itemsUI = new ItemsUI();
+	public static PromotionUI promoUI = new PromotionUI();
+	public static OrderUI orderUI = new OrderUI();
+	public static InvoiceUI invoiceUI = new InvoiceUI();
+	public static ReservationUI reserveUI = new ReservationUI();
+	public static SalesReportUI salesReportUI = new SalesReportUI();
+	
 
 	int choice;
 
@@ -18,6 +22,7 @@ public class MainMenuUI {
 	public void displayMenu() {
 		// TODO - implement MainMenuUI.displayMenu
 		do {
+			System.out.println("----------------------------------");
 			System.out.println("Select a function to perform: ");
 			System.out.println("1: Item menu");
 			System.out.println("2: Promotion items menu");
@@ -27,19 +32,23 @@ public class MainMenuUI {
 			System.out.println("6: Print sale revenue report");
 			System.out.println("7: Quit");
 			System.out.println("Enter the number of your choice: ");
+			System.out.println("----------------------------------");
 			System.out.println();
+
 			choice = sc.nextInt();
 			switch (choice) {
-				 case 1: itemsUI.displayItems();
+				 case 1: 
+				 	displayMgr.getMenu();
+				 	itemsUI.itemsMenu();
 				 break;
 				 case 2: 
-					 promoUI.displayPromotion();
+					 promoUI.promotionMenu();
 				 break;
 				 case 3: 
-					 orderUI.displayOrder();
+					 orderUI.orderMenu();
 				 break;
 				 case 4:
-					 reserveUI.displayReservation();
+					 reserveUI.reservationMenu();
 				 break;
 				 case 5:
 					 invoiceUI.printInvoice();
