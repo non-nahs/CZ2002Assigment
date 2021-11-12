@@ -6,8 +6,13 @@ import java.util.Scanner;
 import controller.DisplayMgr;
 
 public class MainMenuUI {
+	// initiate controller classses
 	public static DisplayMgr displayMgr = new DisplayMgr();
+
+	// initiate entity classes
 	public static Menu menu = new Menu();
+
+	// initiate boundary classes
 	public static ItemsUI itemsUI = new ItemsUI();
 	public static PromotionUI promoUI = new PromotionUI();
 	public static OrderUI orderUI = new OrderUI();
@@ -15,6 +20,7 @@ public class MainMenuUI {
 	public static ReservationUI reserveUI = new ReservationUI();
 	public static SalesReportUI salesReportUI = new SalesReportUI();
 
+	// initiate variables
 	int choice;
 
 	

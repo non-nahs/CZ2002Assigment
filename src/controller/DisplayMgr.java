@@ -1,8 +1,12 @@
 package controller;
 
 import entity.*;
+import boundary.*;
 
 public class DisplayMgr {
+
+	//DisplayMgr displayMgr = MainMenuUI.displayMgr;
+	Menu menu = MainMenuUI.menu;
 
 	public void getMenu() {
 		// TODO - implement DisplayMgr.getMenu
@@ -16,9 +20,10 @@ public class DisplayMgr {
 		System.out.println("Items printed!");
 	}
 
-	public void addItem() {
+	public void addItem(MenuItem nItem) {
 		// TODO - implement DisplayMgr.getItems
 		//throw new UnsupportedOperationException();
+		menu.addItem(nItem);
 		System.out.println("Item added!");
 	}
 
