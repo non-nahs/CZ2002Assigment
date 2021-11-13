@@ -1,4 +1,3 @@
-// Eugene
 package entity;
 
 import java.util.ArrayList;
@@ -11,7 +10,8 @@ public class Staff {
 	private String staffName;
 	private boolean gender;  // false = female // true = male
 	private String jobTitle;
-
+	private static ArrayList<Staff> staffs  = new ArrayList<Staff>();
+	
 	// constructor here
 	public Staff(int sId, String n, boolean g, String jd){
 		this.staffID = sId;
@@ -85,11 +85,21 @@ public class Staff {
 	}
 
 	public static void initStaff(){ // initialise Staffs
-		ArrayList<Staff> staffs  = new ArrayList<Staff>();
 		staffs.add(new Staff(1,"Johnathan",true,"Manager"));
 		staffs.add(new Staff(2,"Joeseph",true,"Supervisor"));
 		staffs.add(new Staff(3,"Jotarou",true,"Waiter"));
 		staffs.add(new Staff(4,"Josuke",true,"Waiter"));
 		staffs.add(new Staff(5,"Jolyne",false,"Waiter"));
+	}
+
+	public void printStaff() {
+		System.out.println("ID  Name  Gender  Job");
+		for(Staff s : staffs)
+			System.out.println(s);
+	}
+
+	@Override
+	public String toString() {
+		return this.staffID + " " + this.staffName + " " + this.gender + " " + this.jobTitle;
 	}
 }
