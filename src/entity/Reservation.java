@@ -13,6 +13,7 @@ public class Reservation {
 	private int pax;
 	private LocalDate bookingDate;
 	private LocalTime bookingTime;
+	private Table customerTable;
 	//private LocalDate bookingExpiry;   ///// REMOVED THIS Date as controller class can prolly derieve
 
 	public Reservation(Customer bC, int p, LocalDate bD, LocalTime bT){
@@ -20,6 +21,7 @@ public class Reservation {
 		this.pax = p;
 		this.bookingDate = bD;
 		this.bookingTime = bT;
+		this.customerTable = null;
 	}
 
 	public Customer getCustomer(){
@@ -43,18 +45,28 @@ public class Reservation {
 
 	public void viewReservation() {
 		//do formatting later
-		System.out.println(this.bookingDate + " \t\t "
-		+ this.bookingTime + " \t\t "
-		+ this.bookCustomer.getName() + " \t\t "
-		+ this.bookCustomer.getPhoneNumber() + " \t\t "
-		+ this.pax);
-
-		/*
-		System.out.println("Table reservation for:\n" + this.bookCustomer.getName()); /////////////
-		System.out.println("Customer contact:\n" + this.bookCustomer.getPhoneNumber());
-		System.out.println("No. of pax:\n" + this.pax);
-		*/
+		System.out.print(this.bookingDate + " \t\t ");
+		System.out.print(this.bookingTime + " \t\t ");
+		System.out.print(this.bookCustomer.getName()+ " \t\t ");
+		System.out.print(this.bookCustomer.getPhoneNumber() + " \t\t ");
+		System.out.print(this.pax + " \t\t ");
+		if(this.customerTable != null){
+			System.out.print(this.customerTable.getTableID());
+		}
+		else{
+			System.out.print("  ");
+		}
+		System.out.print("\n");
 	}
+
+	public void assginedTable(Table table){
+		this.customerTable = table;
+	}
+
+	public Table getTable(){
+		return this.customerTable;
+	}
+
 
 	public void removeReservation() {
 		// TODO - implement Reservation.removeReservation
