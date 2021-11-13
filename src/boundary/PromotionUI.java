@@ -33,14 +33,15 @@ public class PromotionUI {
 			switch (choice) {
 				 case 1:
 					addToOrder();
+					break;
 				 case 2:  //add promotion set
 				 	addPromoSet();
 				 break;
 				 case 3:  // remove promotion set
-				 	rmPromoSet();;
+				 	rmPromoSet();
 				 break;
 				 case 4: 
-				 	editPromoSet();;
+				 	editPromoSet();
 				 break;
 				 case 5:
 					System.out.println("Returning to main menu"); //return to main menu
@@ -56,19 +57,19 @@ public class PromotionUI {
 		System.out.println("-------------------------------");
 		System.out.println("Please enter name of the set");
 		System.out.println("-------------------------------");
-		sc.nextLine();
+		sc.nextLine(); 
 		name = sc.nextLine();
 
 		for(int i=0; i<tempSetPackages.size(); i++){
 			tempSet = tempSetPackages.get(i);
 			if(name.equals(tempSet.getPromotionName())){
-				order.addSet(tempSet);;
+				order.addSet(tempSet);
 				System.out.println("Added to order!");
 			}
 		}
 	}
 
-	private void addPromoSet() { //add a whole set //need to call it in displayMgr
+	private void addPromoSet() { //if add new item to the set, need to add it to alacarte items also
 		String name;
 		double price;
 		ArrayList<MenuItem> setItems = new ArrayList<MenuItem>(); 
@@ -76,7 +77,7 @@ public class PromotionUI {
 		System.out.println("---------------------------------");
 		System.out.println("Please enter name of set package");
 		System.out.println("---------------------------------");
-		sc.nextLine();
+		sc.nextLine(); //!!!!!!!!!!!!!!!!!!!!!if come from editPromoSet, need enter 2 times!!
 		name = sc.nextLine();
 
 		System.out.println("---------------------------------");
@@ -84,35 +85,43 @@ public class PromotionUI {
 		System.out.println("---------------------------------");
 		price = sc.nextDouble();
 
-		char done = 'n';
+		int done = 0;
 		MenuItem item;
 		String itemName;
-		while(done != 'y'){
+		while(done==0){ //if done==1, break out of loop and add whole set
 			System.out.println("----------------------------------------------");
-			System.out.println("Please the name of the item to add to the set");
+			System.out.println("Please enter the name of the item to be added");
 			System.out.println("----------------------------------------------");
-			itemName = sc.next();
+			sc.nextLine();
+			itemName = sc.nextLine();
+			boolean found = false;
 			for(int i=0; i<menu.getMenuItems().size(); i++){
 				if(itemName.equals(menu.getMenuItems().get(i).getName())){ //if itemName == name of the item
+					found = true;
 					item = menu.getMenuItems().get(i);
 					setItems.add(item);
+					System.out.println("Item added");
 					break;
 				}
 			}
 
-			System.out.println("-----------------------------");
-			System.out.println("Add more items? y-yes n-no");
-			System.out.println("-----------------------------");
-			done = sc.next().charAt(0);
-			if (done != 'y' && done != 'n'){
-				System.out.println("Invalid input. Please enter y or n");
+			 if(!found){
+				System.out.println("Item not found!");
+				return;
 			}
-		} //when done == y, not adding anymore items. exit loop
+
+			System.out.println("-----------------------------");
+			System.out.println("Add more items? 0-yes 1-no");
+			System.out.println("-----------------------------");
+			done = sc.nextInt();
+			System.out.println(done);
+		} //when done == 1, not adding anymore items. exit loop
 
 		SetPromotionPackage newSet = new SetPromotionPackage(name, price, setItems);
 		menu.addSet(newSet);
 		System.out.println(newSet.getPromotionName() + " set was added!");
 		//displayMgr.addItem(newItem);
+
 	}
 
 	private void rmPromoSet() { //remove whole set
