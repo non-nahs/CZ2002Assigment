@@ -16,7 +16,7 @@ public class Customer {
 
 	public Customer() {
 		name = "John Smith";
-		membership = false;
+		membership = true;
 		phoneNumber = 123;
 	}
 

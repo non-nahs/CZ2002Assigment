@@ -66,6 +66,7 @@ public class ItemsUI {
 		while(i < tempMenuItems.size()) {
 			tempItem = tempMenuItems.get(i);
 			if (name.equals(tempItem.getName())) {
+				menu.removeItem(tempItem);
 				addMenuItem();
 				System.out.println("Item was updated!");
 				break;

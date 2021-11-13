@@ -13,6 +13,7 @@ public class MainMenuUI {
 
 	// initiate entity classes
 	public static Menu menu = new Menu();
+	public static SetPromotionPackage setPromo = new SetPromotionPackage();
 	public static Customer customer = new Customer();
 	public static Order order = new Order();
 	public static OrderInvoice orderInvoice = new OrderInvoice();
