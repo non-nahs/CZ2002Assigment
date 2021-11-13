@@ -56,7 +56,7 @@ public class OrderInvoice {
 		}*/
 	}
 
-	public void printInvoice() {
+	public void printInvoice(Boolean membership) {
 		//Path path = Paths.get("orderList.txt");
 		/*try(Scanner sc = new Scanner(new File(MainMgr.PATH))) {
 			//sc.reset();
@@ -77,14 +77,24 @@ public class OrderInvoice {
 		b4DiscTotal = order.getPretaxTotal();
 		svcTax = b4DiscTotal * 0.1;
 		gstTax = b4DiscTotal * 1.1 * 0.07;
-		if(cus.getMembership())
-			discountTotal = (b4DiscTotal + svcTax + gstTax) * 0.1;
-		finalTotal = b4DiscTotal + svcTax + gstTax - discountTotal;
+		if(membership) {
+			discountTotal = b4DiscTotal * 0.1;
+			finalTotal = b4DiscTotal + svcTax + gstTax - discountTotal;
+		}
+		else {
+			finalTotal = b4DiscTotal + svcTax + gstTax;
+		}
 		System.out.println("\nSubTotal: " + df.format(b4DiscTotal));
 		System.out.println("Service Charge: " + df.format(svcTax));
 		System.out.println("GST: " + df.format(gstTax));
-		System.out.println("Discount: " + df.format(discountTotal));
-		System.out.println("Total: " + df.format(finalTotal));
+		if(membership) {
+			System.out.println("Discount: " + df.format(discountTotal));
+			System.out.println("Total: " + df.format(finalTotal));
+		}
+		else {
+			System.out.println("Total: " + df.format(finalTotal));
+		}
+		
 		order.clearOrder();
 	}
 

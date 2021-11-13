@@ -9,6 +9,8 @@ public class OrderUI {
 	Scanner sc = new Scanner(System.in);
 	DisplayMgr displayMgr = MainMenuUI.displayMgr;
 	ItemsUI itemsUI = MainMenuUI.itemsUI;
+	InvoiceUI invoiceUI = MainMenuUI.invoiceUI;
+
 	Order order = MainMenuUI.order;
 	SetPromotionPackage setPromo = MainMenuUI.setPromo;
 	Menu menu = MainMenuUI.menu;
@@ -19,6 +21,7 @@ public class OrderUI {
 		int choice;
 
 		System.out.println("----------------------------------");
+		System.out.println("Current orders:");
 		printOrder();
 		System.out.println("----------------------------------");
 		System.out.println("Please choose an option");
@@ -38,7 +41,7 @@ public class OrderUI {
 				 break;
 				 case 3: //prints and calls order invoice
 					System.out.println("Printing invoice..."); 
-					displayMgr.getInvoice();
+					invoiceUI.printInvoice();
 				break;
 				case 4: 
 					System.out.println("Returning to main menu"); //return to main menu
