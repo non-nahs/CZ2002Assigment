@@ -57,7 +57,7 @@ public class OrderInvoice {
 		} catch(Exception e) {
 			System.out.println("Error: " + e.getMessage() + e.getLocalizedMessage());
 		}
-	}t
+	}
 
 	public LocalDate getTimeStamp() {
 		return this.timeStamp;
