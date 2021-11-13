@@ -4,6 +4,7 @@ package entity;
 import java.util.*;
 
 import boundary.MainMenuUI;
+import controller.MainMgr;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -40,10 +41,10 @@ public class OrderInvoice {
 		OrderInvoice.finalTotal = 0;
 	} 
 
-	public static void initInvoice() {
+	public void initInvoice() {
 		// insert ur path name to this place
 		// copy path of orderList.txt
-		Path path = Paths.get("orderList.txt");
+		/*Path path = Paths.get("orderList.txt");
 		try(Scanner sc = new Scanner(path)) {
 			
 			while (sc.hasNextLine()) {
@@ -52,21 +53,26 @@ public class OrderInvoice {
 			
 		} catch(Exception e) {
 			System.out.println("Error: " + e.getMessage() + e.getLocalizedMessage());
-		}
+		}*/
 	}
 
-	public static void printInvoice() {
-		Path path = Paths.get("orderList.txt");
-		try(Scanner sc = new Scanner(path)) {
-			
+	public void printInvoice() {
+		//Path path = Paths.get("orderList.txt");
+		try(Scanner sc = new Scanner(new File(MainMgr.PATH))) {
+			//sc.reset();
 			while (sc.hasNextLine()) {
 				System.out.println(sc.nextLine());
 			}
-			
+			sc.close();
 		} catch(Exception e) {
 			System.out.println("Error: " + e.getMessage() + e.getLocalizedMessage());
 		}
-
+		try {
+			invoice2txt();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		order.calPretaxTotal();
 		b4DiscTotal = order.getPretaxTotal();
 		svcTax = b4DiscTotal * 0.1;
@@ -79,21 +85,27 @@ public class OrderInvoice {
 		System.out.println("GST: " + df.format(gstTax));
 		System.out.println("Discount: " + df.format(discountTotal));
 		System.out.println("Total: " + df.format(finalTotal));
-		
 	}
 
 	public void invoice2txt() throws IOException {
 		ArrayList <Order> totalOrder= new ArrayList<Order>();
 		//converts object from order to total order to add to invoice for sale revenue in future
-		int i=0, j=0;
+		MenuItem tempItem = new MenuItem();
+		SetPromotionPackage tempPackage = new SetPromotionPackage();
 
+		int i=0;
 		for (i=0; i<order.getOrder().size(); i++) {
-
+			tempItem = order.getOrder().get(i);
+			System.out.println(tempItem.getName() + "\t" + tempItem.getPrice());
 		}
-
+		i=0;
+		for (i=0; i<order.getSetOrder().size(); i++) {
+			tempPackage = order.getSetOrder().get(i);
+			System.out.println(tempPackage.getPromotionName() + "\t" + tempPackage.getPromotionPrice());
+		}
 		// writes object in stream to txt file
 		try {
-			FileOutputStream fos = new FileOutputStream("orderList.txt");
+			FileOutputStream fos = new FileOutputStream(MainMgr.PATH);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(totalOrder);
 			oos.close();
