@@ -9,6 +9,12 @@ public class SetPromotionPackage {
 	private double promotionPrice;
 	private ArrayList<MenuItem> setItems = new ArrayList<MenuItem>(); 
 
+	public SetPromotionPackage() {
+		promotionID = 0;
+		promotionName = "";
+		promotionPrice = 0;
+		setItems = null;
+	}
 	//use constructor to add a set under menu
 	public SetPromotionPackage(int id, String name, double price, ArrayList<MenuItem> items) {
 		promotionID = id;
@@ -29,6 +35,9 @@ public class SetPromotionPackage {
 	}
 	public ArrayList<MenuItem> getSetItems() {
 		return setItems;
+	}
+	public int getSetSize() {
+		return setItems.size();
 	}
 
 	//updating the attributes (setters)

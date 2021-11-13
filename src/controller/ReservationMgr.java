@@ -3,7 +3,7 @@ package controller;
 import entity.Reservation;
 
 public class ReservationMgr {
-x
+
 	//public void createReservation() {
 		//return new Reservation();
 	//}

@@ -10,30 +10,26 @@ public class Menu {
 	private ArrayList<MenuItem> items = new ArrayList<MenuItem>();
 	private ArrayList<SetPromotionPackage> sets = new ArrayList<SetPromotionPackage>();
 
-	//initialise default menu
-
-	public void printMenu() {
+	//print ala carte menu
+	public void printAlaCarteMenu() { 
 		//for design principles: move each print e.g. print main course to a new class, then call the classes to print here?
 		MenuItem tempItem;
-		SetPromotionPackage tempSet;
-		String name;
-		double price;
 
-		System.out.println("MENU\n");
+		System.out.println("ALA-CARTE MENU\n");
 
 		System.out.println("Main Course:");
 		for(int i=0; i<items.size(); i++){
-			tempItem = items.get(i); //current item in the iteration
+			tempItem = items.get(i); 		//current item in the arraylist of menuitems
 			if(tempItem.getCategory() == Category.MAIN_COURSE){ //if item == maincourse, print
-				System.out.println(tempItem.toString(tempItem)+"\n");
+				System.out.println(tempItem.toString(tempItem)+"\n"); //each menuitem printed
 			}
 		}
 		System.out.println("\n");
 
 		System.out.println("Drinks:");
-		for(int i=0; i<items.size(); i++){
-			tempItem = items.get(i);
-			if(tempItem.getCategory() == Category.DRINK){
+		for(int i=0; i<items.size(); i++){		
+			tempItem = items.get(i); 			//current item in the arraylist of menuitems
+			if(tempItem.getCategory() == Category.DRINK){		//if item == maincourse, print
 				System.out.println(tempItem.toString(tempItem)+"\n");
 			}
 		}
@@ -47,8 +43,16 @@ public class Menu {
 				System.out.println(tempItem.toString(tempItem)+"\n");
 			}
 		}
-		System.out.println("\n");
 
+
+	}
+
+
+	//print promo menu
+	public void printPromoMenu(){ 
+		SetPromotionPackage tempSet;
+		String name;
+		double price;
 
 		System.out.println("Set Promotion Packages: ");
 		ArrayList<MenuItem> tempSetItems;
@@ -58,14 +62,16 @@ public class Menu {
 
 			name = tempSet.getPromotionName();
 			price = tempSet.getPromotionPrice();
-			System.out.println(name + "\t" + price);
+			System.out.println(name + "\t\t" + price);
 
 			for(int j=0; j<tempSetItems.size(); j++) {
 				System.out.println(tempSetItems.get(j).getName());
 				System.out.println(tempSetItems.get(j).getDescripton()+"\n");
 			}
-		}
 
+			System.out.println("\n");
+
+		}
 	}
 
 	// public String toString(MenuItem item){
@@ -102,6 +108,27 @@ public class Menu {
 	}
 
 	public void removeItem(MenuItem item){
+		// first checks if item exists in a set promotion package, then removes package if it exists
+
+		int i=0, j=0;
+		ArrayList<SetPromotionPackage> tempPromoList = sets;
+		SetPromotionPackage tempPromoSet = new SetPromotionPackage();
+		MenuItem tempItem = new MenuItem();
+		while (i<tempPromoList.size()) {
+			tempPromoSet = tempPromoList.get(i);
+			ArrayList<MenuItem> tempMList = tempPromoSet.getSetItems();
+			while (j<tempMList.size()) {
+				tempItem = tempMList.get(j);
+				if (item.equals(tempItem)) {
+					removeSet(tempPromoSet);
+					System.out.println("Set " + tempPromoSet.getPromotionID() + " was removed!");
+				}
+				j++;
+			}
+			i++;
+		}
+		
+		//removes item from list
 		items.remove(item);
 		item = null;
 	}
@@ -114,5 +141,10 @@ public class Menu {
 		sets.remove(set);
 		set = null;
 	}
+	
+
+	public ArrayList<MenuItem> getMenuItems() {
+		return items;
+	  }
 
 }

@@ -8,6 +8,13 @@ public class MenuItem {
 	public enum Category {MAIN_COURSE, DRINK, DESSERT};
 	private Category category;
 
+	public MenuItem() {
+		category = Category.MAIN_COURSE;
+		name = "";
+		desc = "";
+		price = 0;
+	}
+
 	public MenuItem(Category cat, String n, String d, double p){
 		category = cat;
 		name = n;
