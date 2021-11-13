@@ -86,47 +86,8 @@ public class ItemsUI {
 		while(i < tempMenuItems.size()) {
 			tempItem = tempMenuItems.get(i);
 			if (name.equals(tempItem.getName())) {
-				String newName, newDesc;
-				double newPrice;
-				Category newCat = Category.MAIN_COURSE;
-				int choice=0;
-
-				System.out.println("----------------------------------");
-				System.out.println("Please choose Category");
-				System.out.println("1. Main Course");
-				System.out.println("2. Drink");
-				System.out.println("3. Dessert");
-				System.out.println("----------------------------------");
-				choice = sc.nextInt();
-
-				switch(choice) {
-					case 1: newCat = Category.MAIN_COURSE;
-					break;
-					case 2: newCat = Category.DRINK;
-					break;
-					case 3: newCat = Category.DESSERT;
-					break;
-				}
-
-				System.out.println("----------------------------------");
-				System.out.println("Please enter name of menu item");
-				System.out.println("----------------------------------");
-				sc.nextLine();
-				newName = sc.nextLine();
-
-				System.out.println("----------------------------------");
-				System.out.println("Please enter description of menu item");
-				System.out.println("----------------------------------");
-				newDesc = sc.nextLine();
-
-				System.out.println("----------------------------------");
-				System.out.println("Please enter price of menu item");
-				System.out.println("----------------------------------");
-				newPrice = sc.nextDouble();	
-				tempItem.setCategory(newCat);
-				tempItem.setName(newName);
-				tempItem.setDescription(newDesc);
-				tempItem.setPrice(newPrice);
+				order.addItem(tempItem);
+				System.out.println("Added to order!");
 			}
 			i++;
 		}

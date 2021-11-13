@@ -114,19 +114,31 @@ public class Menu {
 		ArrayList<SetPromotionPackage> tempPromoList = sets;
 		SetPromotionPackage tempPromoSet = new SetPromotionPackage();
 		MenuItem tempItem = new MenuItem();
-		while (i<tempPromoList.size()) {
+		for (i=0; i<tempPromoList.size(); i++) {
+			tempPromoSet = tempPromoList.get(i);
+			ArrayList<MenuItem> tempMList = tempPromoSet.getSetItems();
+			for (j=0; j<tempMList.size(); j++) {
+				tempItem = tempMList.get(j);
+				if (item.getName().equals(tempItem.getName())) {
+					removeSet(tempPromoSet);
+					System.out.println("Set " + tempPromoSet.getPromotionID() + " was removed!");
+				}
+			}
+		}
+
+		/*while (i<tempPromoList.size()) {
 			tempPromoSet = tempPromoList.get(i);
 			ArrayList<MenuItem> tempMList = tempPromoSet.getSetItems();
 			while (j<tempMList.size()) {
 				tempItem = tempMList.get(j);
-				if (item.equals(tempItem)) {
+				if (item.getName().equals(tempItem.getName())) {
 					removeSet(tempPromoSet);
 					System.out.println("Set " + tempPromoSet.getPromotionID() + " was removed!");
 				}
 				j++;
 			}
 			i++;
-		}
+		}*/
 		
 		//removes item from list
 		items.remove(item);
