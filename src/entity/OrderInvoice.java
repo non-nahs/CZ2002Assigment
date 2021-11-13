@@ -13,28 +13,30 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.time.*;
 
 public class OrderInvoice {
-	Order order = MainMenuUI.order;
+	static Order order = MainMenuUI.order;
 	//Collection<Order> orders;
 	private LocalDate timeStamp;
 	private ArrayList<Order> totalOrders;
 	//private boolean membership;
-	private double b4DiscTotal;   // added this for easier calculation bah....
+	private static double b4DiscTotal;   // added this for easier calculation bah....
 	private double discountTotal;
-	private double gstTax;
-	private double svcTax;
-	private double finalTotal;
+	private static double gstTax;
+	private static double svcTax;
+	private static double finalTotal;
+	private static final DecimalFormat df = new DecimalFormat("0.00");
 	
 	public OrderInvoice() {
 		this.timeStamp = LocalDate.now(ZoneId.systemDefault());  // dunno works or not
 		//membership = false;
-		this.b4DiscTotal = 0;
+		OrderInvoice.b4DiscTotal = 0;
 		this.discountTotal = 0;
-		this.gstTax = 0;
-		this.svcTax = 0;
-		this.finalTotal = 0;
+		OrderInvoice.gstTax = 0;
+		OrderInvoice.svcTax = 0;
+		OrderInvoice.finalTotal = 0;
 	} 
 
 	public static void initInvoice() {
@@ -63,6 +65,16 @@ public class OrderInvoice {
 		} catch(Exception e) {
 			System.out.println("Error: " + e.getMessage() + e.getLocalizedMessage());
 		}
+
+		order.calPretaxTotal();
+		b4DiscTotal = order.getPretaxTotal();
+		svcTax = b4DiscTotal * 0.1;
+		gstTax = b4DiscTotal * 1.1 * 0.07;
+		finalTotal = b4DiscTotal + svcTax + gstTax;
+		System.out.println("\nSubTotal: " + df.format(b4DiscTotal));
+		System.out.println("Service Charge: " + df.format(svcTax));
+		System.out.println("GST: " + df.format(gstTax));
+		System.out.println("Total: " + df.format(finalTotal));
 	}
 
 	public void invoice2txt() throws IOException {
