@@ -8,6 +8,8 @@ import java.util.*;
 import controller.DisplayMgr;
 import controller.MainMgr;
 
+import java.time.*;
+
 public class ItemsUI {
 
 	Scanner sc = new Scanner(System.in);
@@ -77,6 +79,7 @@ public class ItemsUI {
 		MenuItem tempItem = new MenuItem();
 		String name;
 		int i = 0;
+		LocalDate orderDate;
 
 		System.out.println("----------------------------------");
 		System.out.println("Please enter name of menu item");
@@ -84,12 +87,13 @@ public class ItemsUI {
 		sc.nextLine();
 		name = sc.nextLine();
 
-		while(i < tempMenuItems.size()) {
+		while(i < tempMenuItems.size()) { //add time of order
 			tempItem = tempMenuItems.get(i);
 			if (name.equals(tempItem.getName())) {
 				order.addItem(tempItem);
-				try (FileWriter writer = new FileWriter("orderList.txt", true)){; 
-					writer.write(tempItem.getName() + "\t" + tempItem.getPrice() + "\n");
+				orderDate = LocalDate.now();
+				try (FileWriter writer = new FileWriter("orderList.txt", true)){;  //add to promoUI
+					writer.write(orderDate + "\t" + "ALC : " + tempItem.getName() + "\t" + tempItem.getPrice() + "\n");
 					writer.flush();
 					writer.close();
 				} catch (Exception e) {
