@@ -21,8 +21,9 @@ public class ReservationUI {
 	public void reservationMenu() {
 		int choice;
 
+		String cusName;
+		int cusContact;
 		int pax;
-		int contact;
 		String bookingString;
 		LocalDate bookingDate;
 		LocalTime bookingTime;
@@ -45,34 +46,30 @@ public class ReservationUI {
 
 				 case 2:  // adds reservation
 				 	displayMgr.addReservation();
+					sc.nextLine();
+					System.out.print("Enter name of customer: ");
+					cusName = sc.nextLine();
+					System.out.print("Enter contact of customer: ");
+					cusContact = sc.nextInt();
 					System.out.print("Enter number of pax: ");
 					pax = sc.nextInt();
-					System.out.print("Booking date (dd//MM/yy): ");
 					sc.nextLine(); // "flush"
-					bookingString = sc.nextLine();
-					dateFormat = DateTimeFormatter.ofPattern("dd/MM/yy");
-					bookingDate = LocalDate.parse(bookingString, dateFormat);
 					System.out.print("Booking time (HH:mm): ");
 					bookingString = sc.nextLine();
-					//bookingString = sc.nextLine();
 					dateFormat = DateTimeFormatter.ofPattern("HH:mm");
 					bookingTime = LocalTime.parse(bookingString,dateFormat);
-
-					//need to find a way to prevnt user from booking same timeslot 
-					reserveMgr.createReservation(cus,pax,bookingDate,bookingTime);
-
-
+					reserveMgr.createReservation(cusName,cusContact,pax,bookingTime);
 				 break;
+				 
 				 case 3: //removes reservation
-				 	System.out.print("Enter customer's contact number: ");
-					contact = sc.nextInt();
-					System.out.print("Enter customer's booking date (dd/MM/yy): ");
-					sc.nextLine(); // "flush"
-					bookingString = sc.nextLine();
-					dateFormat = DateTimeFormatter.ofPattern("dd/MM/yy");
-					bookingDate = LocalDate.parse(bookingString, dateFormat);
-					
-					reserveMgr.removeReservation(contact,bookingDate);
+				 	sc.nextLine(); // "flush"
+					System.out.print("Enter customer's name: ");
+					cusName = sc.nextLine();
+					//7sc.nextLine(); // "flush"
+					System.out.print("Enter customer's contact number: ");
+					cusContact = sc.nextInt();
+	
+					reserveMgr.removeReservation(cusName,cusContact);
 				 	displayMgr.removeReservation();
 					
 				break;
