@@ -3,6 +3,7 @@ package boundary;
 import entity.*;
 import entity.MenuItem.Category;
 
+import java.io.FileWriter;
 import java.util.*;
 import controller.DisplayMgr;
 import controller.MainMgr;
@@ -87,6 +88,13 @@ public class ItemsUI {
 			tempItem = tempMenuItems.get(i);
 			if (name.equals(tempItem.getName())) {
 				order.addItem(tempItem);
+				try (FileWriter writer = new FileWriter("orderList.txt", true)){; 
+					writer.write(tempItem.getName() + "\t" + tempItem.getPrice() + "\n");
+					writer.flush();
+					writer.close();
+				} catch (Exception e) {
+					System.out.println("Error: " + e.getMessage());
+				}
 				System.out.println("Added to order!");
 			}
 			i++;
