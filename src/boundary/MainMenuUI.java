@@ -2,6 +2,11 @@ package boundary;
 
 import entity.*;
 
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -83,7 +88,19 @@ public class MainMenuUI {
 
 	public void initData() {
 		menu.initMenu();
-		OrderInvoice.initInvoice();
+		orderInvoice.initInvoice();
+		/*
+		String path = Paths.get("orderList.txt");
+		FileWriter fileWriter;
+		try {
+			fileWriter = new FileWriter("orderList.txt", false).close();
+			writer.print("");
+			// other operations
+			writer.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
 		Table.initTable();
 	}
 }

@@ -1,5 +1,7 @@
+//DELETE CLASS
+
 /**
- * Represents a customer of the restaurant
+ * Represents a customer that books a reservation and orders from the menu.
  * 
  * @author Yu Runhan
  * @version 1.0

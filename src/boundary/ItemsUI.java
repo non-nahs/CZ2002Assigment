@@ -93,7 +93,7 @@ public class ItemsUI {
 			if (name.equals(tempItem.getName())) {
 				order.addItem(tempItem);
 				orderDate = LocalDate.now();
-				try (FileWriter writer = new FileWriter("orderList.txt", true)){;  //add to promoUI
+				try (FileWriter writer = new FileWriter(MainMgr.PATH, true)){;  //add to promoUI
 					writer.write(orderDate + "\t" + "ALC : " + tempItem.getName() + "\t" + tempItem.getPrice() + "\n");
 					writer.flush();
 					writer.close();
