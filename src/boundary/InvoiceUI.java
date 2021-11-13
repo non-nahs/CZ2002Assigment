@@ -12,9 +12,15 @@ public class InvoiceUI {
 	OrderInvoice orderInvoice = MainMenuUI.orderInvoice;
 	Order order = MainMenuUI.order;
 	
+	
 	public void printInvoice() {
 		// TODO - implement InvoiceUI.printInvoice
 		//throw new UnsupportedOperationException();
+		int tableID=0;
+		System.out.println("Please enter table number from 1-18");
+		tableID = sc.nextInt();
+		MainMenuUI.table.get(tableID-1).releaseTable();
+
 		checkoutOrder();
 		orderInvoice.printInvoice();
 		System.out.println("Returning to main menu");

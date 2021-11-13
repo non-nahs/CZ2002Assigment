@@ -58,7 +58,7 @@ public class OrderInvoice {
 
 	public void printInvoice() {
 		//Path path = Paths.get("orderList.txt");
-		try(Scanner sc = new Scanner(new File(MainMgr.PATH))) {
+		/*try(Scanner sc = new Scanner(new File(MainMgr.PATH))) {
 			//sc.reset();
 			while (sc.hasNextLine()) {
 				System.out.println(sc.nextLine());
@@ -66,7 +66,7 @@ public class OrderInvoice {
 			sc.close();
 		} catch(Exception e) {
 			System.out.println("Error: " + e.getMessage() + e.getLocalizedMessage());
-		}
+		}*/
 		try {
 			invoice2txt();
 		} catch (IOException e) {
@@ -85,6 +85,7 @@ public class OrderInvoice {
 		System.out.println("GST: " + df.format(gstTax));
 		System.out.println("Discount: " + df.format(discountTotal));
 		System.out.println("Total: " + df.format(finalTotal));
+		order.clearOrder();
 	}
 
 	public void invoice2txt() throws IOException {
@@ -104,7 +105,7 @@ public class OrderInvoice {
 			System.out.println(tempPackage.getPromotionName() + "\t" + tempPackage.getPromotionPrice());
 		}
 		// writes object in stream to txt file
-		try {
+		/*try {
 			FileOutputStream fos = new FileOutputStream(MainMgr.PATH);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(totalOrder);
@@ -112,7 +113,7 @@ public class OrderInvoice {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 	}
 

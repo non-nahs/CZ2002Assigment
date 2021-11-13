@@ -93,13 +93,13 @@ public class ItemsUI {
 			if (name.equals(tempItem.getName())) {
 				order.addItem(tempItem);
 				orderDate = LocalDate.now();
-				try (FileWriter writer = new FileWriter(MainMgr.PATH, true)){;  //add to promoUI
+				/*try (FileWriter writer = new FileWriter(MainMgr.PATH, true)){;  //add to promoUI
 					writer.write(orderDate + "\t" + "ALC : " + tempItem.getName() + "\t" + tempItem.getPrice() + "\n");
 					writer.flush();
 					writer.close();
 				} catch (Exception e) {
 					System.out.println("Error: " + e.getMessage());
-				}
+				}*/
 				System.out.println("Added to order!");
 			}
 			i++;
