@@ -4,8 +4,11 @@ import boundary.MainMenuUI;
 import entity.*;
 
 public class MainMgr {
-
+	//change path of orderList.txt to local path
+	public static final String PATH = "";
+	public static int x;
 	public static void main(String[] args) {
+		
 		initDisplay();
 		//throw new UnsupportedOperationException();
 	}

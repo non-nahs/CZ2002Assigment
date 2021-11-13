@@ -36,6 +36,10 @@ public class Reservation {
 		return this.bookingTime;
 	}
 
+	public Table getTable(){
+		return this.customerTable;
+	}
+
 
 	public void viewReservation() {
 		//do formatting later
@@ -45,14 +49,6 @@ public class Reservation {
 		System.out.print(this.pax + " \t ");
 		System.out.print(this.customerTable.getTableID());
 		System.out.print("\n");
-	}
-
-	public void assginedTable(Table table){
-		this.customerTable = table;
-	}
-
-	public Table getTable(){
-		return this.customerTable;
 	}
 
 }

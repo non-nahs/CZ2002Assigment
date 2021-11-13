@@ -38,6 +38,8 @@ public class Order {
 		// TODO - implement Order.calPretaxTotal
 		for (MenuItem m : order)
 			this.pretaxTotal += m.getPrice();
+		for (SetPromotionPackage set : setOrder)
+			pretaxTotal += set.getPromotionPrice();
 	}
 
 	public double getPretaxTotal() {
