@@ -2,15 +2,21 @@
 package entity;
 
 import java.util.*;
+
+import boundary.MainMenuUI;
+
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.*;
 
 public class OrderInvoice {
-
+	Order order = MainMenuUI.order;
 	//Collection<Order> orders;
 	private LocalDate timeStamp;
 	private ArrayList<Order> totalOrders;
@@ -31,10 +37,10 @@ public class OrderInvoice {
 		this.finalTotal = 0;
 	} 
 
-	public void initInvoice() {
+	public static void initInvoice() {
 		// insert ur path name to this place
 		// copy path of orderList.txt
-		Path path = Paths.get("/Users/shanchieng/Desktop/Git/CZ2002Assigment/src/dataBase/orderList.txt");
+		Path path = Paths.get("orderList.txt");
 		try(Scanner sc = new Scanner(path)) {
 			
 			while (sc.hasNextLine()) {
@@ -46,8 +52,8 @@ public class OrderInvoice {
 		}
 	}
 
-	public void printInvoice() {
-		Path path = Paths.get("/Users/shanchieng/Desktop/Git/CZ2002Assigment/src/dataBase/orderList.txt");
+	public static void printInvoice() {
+		Path path = Paths.get("orderList.txt");
 		try(Scanner sc = new Scanner(path)) {
 			
 			while (sc.hasNextLine()) {
@@ -57,6 +63,28 @@ public class OrderInvoice {
 		} catch(Exception e) {
 			System.out.println("Error: " + e.getMessage() + e.getLocalizedMessage());
 		}
+	}
+
+	public void invoice2txt() throws IOException {
+		ArrayList <Order> totalOrder= new ArrayList<Order>();
+		//converts object from order to total order to add to invoice for sale revenue in future
+		int i=0, j=0;
+
+		for (i=0; i<order.getOrder().size(); i++) {
+
+		}
+
+		// writes object in stream to txt file
+		try {
+			FileOutputStream fos = new FileOutputStream("orderList.txt");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(totalOrder);
+			oos.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	public LocalDate getTimeStamp() {

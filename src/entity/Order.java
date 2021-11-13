@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Order {
 
-	private ArrayList<MenuItem> order  = new ArrayList<MenuItem>();
-	private ArrayList<SetPromotionPackage> setOrder = new ArrayList<SetPromotionPackage>();
+	private static ArrayList<MenuItem> order  = new ArrayList<MenuItem>();
+	private static ArrayList<SetPromotionPackage> setOrder = new ArrayList<SetPromotionPackage>();
 	private double pretaxTotal;
 
 	public void viewOrder() {
@@ -42,6 +42,14 @@ public class Order {
 
 	public double getPretaxTotal() {
 		return this.pretaxTotal;
+	}
+
+	public ArrayList<MenuItem> getOrder() {
+		return order;
+	}
+
+	public ArrayList<SetPromotionPackage> getSetOrder() {
+		return setOrder;
 	}
 
 }

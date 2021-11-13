@@ -16,7 +16,7 @@ public class InvoiceUI {
 		// TODO - implement InvoiceUI.printInvoice
 		//throw new UnsupportedOperationException();
 		checkoutOrder();
-		orderInvoice.printInvoice();
+		OrderInvoice.printInvoice();
 		System.out.println("Returning to main menu");
 	}
 
