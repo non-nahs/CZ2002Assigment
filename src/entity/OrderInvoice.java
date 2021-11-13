@@ -18,12 +18,13 @@ import java.time.*;
 
 public class OrderInvoice {
 	static Order order = MainMenuUI.order;
+	static Customer cus = MainMenuUI.customer;
 	//Collection<Order> orders;
 	private LocalDate timeStamp;
 	private ArrayList<Order> totalOrders;
 	//private boolean membership;
 	private static double b4DiscTotal;   // added this for easier calculation bah....
-	private double discountTotal;
+	private static double discountTotal;
 	private static double gstTax;
 	private static double svcTax;
 	private static double finalTotal;
@@ -33,7 +34,7 @@ public class OrderInvoice {
 		this.timeStamp = LocalDate.now(ZoneId.systemDefault());  // dunno works or not
 		//membership = false;
 		OrderInvoice.b4DiscTotal = 0;
-		this.discountTotal = 0;
+		OrderInvoice.discountTotal = 0;
 		OrderInvoice.gstTax = 0;
 		OrderInvoice.svcTax = 0;
 		OrderInvoice.finalTotal = 0;
@@ -70,11 +71,15 @@ public class OrderInvoice {
 		b4DiscTotal = order.getPretaxTotal();
 		svcTax = b4DiscTotal * 0.1;
 		gstTax = b4DiscTotal * 1.1 * 0.07;
-		finalTotal = b4DiscTotal + svcTax + gstTax;
+		if(cus.getMembership())
+			discountTotal = (b4DiscTotal + svcTax + gstTax) * 0.1;
+		finalTotal = b4DiscTotal + svcTax + gstTax - discountTotal;
 		System.out.println("\nSubTotal: " + df.format(b4DiscTotal));
 		System.out.println("Service Charge: " + df.format(svcTax));
 		System.out.println("GST: " + df.format(gstTax));
+		System.out.println("Discount: " + df.format(discountTotal));
 		System.out.println("Total: " + df.format(finalTotal));
+		
 	}
 
 	public void invoice2txt() throws IOException {
@@ -121,25 +126,25 @@ public class OrderInvoice {
 		if (status){ // if memberstatus == true
 			totalDisc = 0.1 * totalSum;
 		}
-		this.discountTotal = totalDisc; 
+		OrderInvoice.discountTotal = totalDisc; 
 
 		//throw new UnsupportedOperationException();
 	}
 
 	public void calculateGST() {
 		// assume GST = 7%
-		this.gstTax = 0.07 * sumTotal();
+		OrderInvoice.gstTax = 0.07 * sumTotal();
 		//throw new UnsupportedOperationException();
 	}
 
 	public void calculateSVC() {
 		// assume svc charge = 10%
-		this.gstTax = 0.10 * sumTotal();
+		OrderInvoice.gstTax = 0.10 * sumTotal();
 		//throw new UnsupportedOperationException();
 	}
 
 	public void calculateTotal() {
-		this.finalTotal = sumTotal() + this.gstTax + this.svcTax - this.discountTotal;
+		OrderInvoice.finalTotal = sumTotal() + OrderInvoice.gstTax + OrderInvoice.svcTax - this.discountTotal;
 		//throw new UnsupportedOperationException();
 	}
 
@@ -148,15 +153,15 @@ public class OrderInvoice {
 	}
 
 	public double getGST() {
-		return this.gstTax;
+		return OrderInvoice.gstTax;
 	}
 
 	public double getSVC() {
-		return this.svcTax;
+		return OrderInvoice.svcTax;
 	}
 
 	public double getFinalTotal() {
-		return this.finalTotal;
+		return OrderInvoice.finalTotal;
 	}
 
 }		
