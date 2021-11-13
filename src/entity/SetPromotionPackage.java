@@ -27,7 +27,7 @@ public class SetPromotionPackage {
 	private ArrayList<MenuItem> setItems = new ArrayList<MenuItem>(); 
 
 	/**
-	 * Creates an empty set promotion package.
+	 * Creates an empty set promotion package, constructor
 	 */
 	public SetPromotionPackage() {
 		promotionName = "";
@@ -86,18 +86,5 @@ public class SetPromotionPackage {
 	public void updatePromotionName(String newName){
 		promotionName = newName;
 	}
-
-
-	// public void updatePromotionPrice(double newPrice){
-	// 	promotionPrice = newPrice;
-	// }
-
-	// public void addSetItem(MenuItem newSetItem){
-	// 	setItems.add(newSetItem);
-	// }
-
-	// public void removeSetItem(MenuItem setItemR){
-	// 	setItems.remove(setItemR);
-	// }
 
 }
