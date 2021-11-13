@@ -10,6 +10,7 @@ public class OrderUI {
 	DisplayMgr displayMgr = MainMenuUI.displayMgr;
 	ItemsUI itemsUI = MainMenuUI.itemsUI;
 	Order order = MainMenuUI.order;
+	SetPromotionPackage setPromo = MainMenuUI.setPromo;
 	Menu menu = MainMenuUI.menu;
 
 	public void orderMenu() {
@@ -51,17 +52,26 @@ public class OrderUI {
 	}
 
 	private void printOrder() {
-		order.viewOrder();
+		ArrayList<MenuItem> tempMenuItems = order.getOrder();
+		ArrayList<SetPromotionPackage> tempSetPromo = order.getSetOrder();
+		
+		for (MenuItem m : tempMenuItems)
+			System.out.println(m.getName() + "\t" + m.getPrice());
+		for (SetPromotionPackage set : tempSetPromo)
+			System.out.println(set.getPromotionName() + "\t" + set.getPromotionPrice());
 	}
 
 	private void removeOrder() {
 		ArrayList<MenuItem> tempMenuItems = menu.getMenuItems();
+		ArrayList<SetPromotionPackage> tempSetPromoList = menu.getSetPackages();
 		MenuItem tempItem = new MenuItem();
+		SetPromotionPackage tempSetPromo = new SetPromotionPackage();
+
 		String name;
 		int i = 0;
 
 		System.out.println("----------------------------------");
-		System.out.println("Please enter name of menu item");
+		System.out.println("Please enter name of Menu Item or Set Promotion.");
 		System.out.println("----------------------------------");
 		sc.nextLine();
 		name = sc.nextLine();
@@ -70,7 +80,17 @@ public class OrderUI {
 			tempItem = tempMenuItems.get(i);
 			if (name.equals(tempItem.getName())) {
 				order.removeItem(tempItem);
-				System.out.println("Removed from order!");
+				System.out.println("Removed "+ name + " from order!");
+				break;
+			}
+			i++;
+		}
+		i=0;
+		while(i < tempSetPromoList.size()) {
+			tempSetPromo = tempSetPromoList.get(i);
+			if (name.equals(tempSetPromo.getPromotionName())) {
+				order.removeSet(tempSetPromo);
+				System.out.println("Removed "+ name + " from order!");
 				break;
 			}
 			i++;

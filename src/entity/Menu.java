@@ -142,7 +142,7 @@ public class Menu {
 		
 		//removes item from list
 		items.remove(item);
-		item = null;
+		//item = null;
 	}
 
 	public void addSet(SetPromotionPackage newSet){
@@ -151,7 +151,7 @@ public class Menu {
 
 	public void removeSet(SetPromotionPackage set){
 		sets.remove(set);
-		set = null;
+		//set = null;
 	}
 
 	public ArrayList<MenuItem> getMenuItems() {
