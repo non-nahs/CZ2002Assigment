@@ -18,7 +18,7 @@ public class MainMgr {
 
 	public void checkTimeout() {
 		// TODO - implement MainMgr.checkTimeout
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 	
 	private static void initDisplay() {

@@ -9,6 +9,7 @@ public class OrderInvoice {
 	//Collection<Order> orders;
 	private LocalDate timeStamp;
 	private ArrayList<Order> totalOrders;
+	//private boolean membership;
 	private double b4DiscTotal;   // added this for easier calculation bah....
 	private double discountTotal;
 	private double gstTax;
@@ -17,6 +18,7 @@ public class OrderInvoice {
 	
 	public OrderInvoice(){
 		this.timeStamp = LocalDate.now(ZoneId.systemDefault());  // dunno works or not
+		//membership = false;
 		this.b4DiscTotal = 0;
 		this.discountTotal = 0;
 		this.gstTax = 0;
@@ -48,24 +50,24 @@ public class OrderInvoice {
 		}
 		this.discountTotal = totalDisc; 
 
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	public void calculateGST() {
 		// assume GST = 7%
 		this.gstTax = 0.07 * sumTotal();
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	public void calculateSVC() {
 		// assume svc charge = 10%
 		this.gstTax = 0.10 * sumTotal();
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	public void calculateTotal() {
 		this.finalTotal = sumTotal() + this.gstTax + this.svcTax - this.discountTotal;
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	public double getDiscount() {
