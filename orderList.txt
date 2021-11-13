@@ -1,3 +1,2 @@
-Angus Beef Burger	18.0
-Pink Cooler	6.0
-Carrot cake	6.5
+2021-11-14	ALC : Angus Beef Burger	18.0
+2021-11-14	ALC : Tiramisu	6.5
