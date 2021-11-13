@@ -96,11 +96,11 @@ public class Menu {
 		//initialise sets
 		ArrayList<MenuItem> set1 = new ArrayList<MenuItem>();
 		set1.add(beefBurger); set1.add(passionFruit); set1.add(carrotCake);
-		sets.add(new SetPromotionPackage(1, "Beefy Monday", 25, set1));
+		sets.add(new SetPromotionPackage("Beefy Monday", 25, set1));
 
 		ArrayList<MenuItem> set2 = new ArrayList<MenuItem>();
 		set2.add(fishNchips); set2.add(pinkCooler); set2.add(tiramisu);
-		sets.add(new SetPromotionPackage(2, "Fishy Tuesday", 22, set2));
+		sets.add(new SetPromotionPackage("Fishy Tuesday", 22, set2));
 	}
 
 	public void addItem(MenuItem newItem){
@@ -121,7 +121,7 @@ public class Menu {
 				tempItem = tempMList.get(j);
 				if (item.getName().equals(tempItem.getName())) {
 					removeSet(tempPromoSet);
-					System.out.println("Set " + tempPromoSet.getPromotionID() + " was removed!");
+					System.out.println("Set " + tempPromoSet.getPromotionName() + " was removed!");
 				}
 			}
 		}
@@ -153,10 +153,13 @@ public class Menu {
 		sets.remove(set);
 		set = null;
 	}
-	
 
 	public ArrayList<MenuItem> getMenuItems() {
 		return items;
-	  }
+	}
+
+	public ArrayList<SetPromotionPackage> getSetPackages(){
+		return sets;
+	}
 
 }
