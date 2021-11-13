@@ -1,5 +1,13 @@
+/**
+ * Represents a customer of the restaurant
+ * 
+ * @author Yu Runhan
+ * @version 1.0
+ * @since 2021-10-15
+ */
+
 package entity;
-//runhan
+
 public class Customer {
 
 	private String name; //first name last name
