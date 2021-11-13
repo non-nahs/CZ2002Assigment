@@ -9,6 +9,7 @@ import controller.MainMgr;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
@@ -67,12 +68,7 @@ public class OrderInvoice {
 		} catch(Exception e) {
 			System.out.println("Error: " + e.getMessage() + e.getLocalizedMessage());
 		}*/
-		try {
-			invoice2txt();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		order.calPretaxTotal();
 		b4DiscTotal = order.getPretaxTotal();
 		svcTax = b4DiscTotal * 0.1;
@@ -83,6 +79,12 @@ public class OrderInvoice {
 		}
 		else {
 			finalTotal = b4DiscTotal + svcTax + gstTax;
+		}
+		try {
+			invoice2txt();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		System.out.println("\nSubTotal: " + df.format(b4DiscTotal));
 		System.out.println("Service Charge: " + df.format(svcTax));
@@ -103,27 +105,42 @@ public class OrderInvoice {
 		//converts object from order to total order to add to invoice for sale revenue in future
 		MenuItem tempItem = new MenuItem();
 		SetPromotionPackage tempPackage = new SetPromotionPackage();
+		LocalDate orderDate;
 
+		orderDate = LocalDate.now();
 		int i=0;
 		for (i=0; i<order.getOrder().size(); i++) {
 			tempItem = order.getOrder().get(i);
+			try (FileWriter writer = new FileWriter(MainMgr.PATH, true)){;  //add to promoUI
+				writer.write(orderDate + "\t" + "ALC : " + tempItem.getName() + "\t" + tempItem.getPrice() + "\n");
+				writer.flush();
+				writer.close();
+			} catch (Exception e) {
+				System.out.println("Error: " + e.getMessage());
+			}
 			System.out.println(tempItem.getName() + "\t" + tempItem.getPrice());
 		}
 		i=0;
 		for (i=0; i<order.getSetOrder().size(); i++) {
 			tempPackage = order.getSetOrder().get(i);
+			try (FileWriter writer = new FileWriter(MainMgr.PATH, true)){;  //add to promoUI
+				writer.write(orderDate + "\t" + "Set : " + tempPackage.getPromotionName() + "\t" + tempPackage.getPromotionPrice() + "\n");
+				writer.flush();
+				writer.close();
+			} catch (Exception e) {
+				System.out.println("Error: " + e.getMessage());
+			}
 			System.out.println(tempPackage.getPromotionName() + "\t" + tempPackage.getPromotionPrice());
 		}
 		// writes object in stream to txt file
-		/*try {
-			FileOutputStream fos = new FileOutputStream(MainMgr.PATH);
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(totalOrder);
-			oos.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
+		
+		/*try (FileWriter writer = new FileWriter(MainMgr.PATH, true)){;  //add to promoUI
+					writer.write(orderDate + "\t" + "ALC : " + tempItem.getName() + "\t" + tempItem.getPrice() + "\n");
+					writer.flush();
+					writer.close();
+				} catch (Exception e) {
+					System.out.println("Error: " + e.getMessage());
+		*/
 		
 	}
 

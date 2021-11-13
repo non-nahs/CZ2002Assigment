@@ -9,7 +9,6 @@ public class OrderUI {
 	Scanner sc = new Scanner(System.in);
 	DisplayMgr displayMgr = MainMenuUI.displayMgr;
 	ItemsUI itemsUI = MainMenuUI.itemsUI;
-	InvoiceUI invoiceUI = MainMenuUI.invoiceUI;
 
 	Order order = MainMenuUI.order;
 	SetPromotionPackage setPromo = MainMenuUI.setPromo;
@@ -40,6 +39,7 @@ public class OrderUI {
 				 	removeOrder();
 				 break;
 				 case 3: //prints and calls order invoice
+					InvoiceUI invoiceUI = MainMenuUI.invoiceUI;
 					System.out.println("Printing invoice..."); 
 					invoiceUI.printInvoice();
 				break;
