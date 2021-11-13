@@ -5,7 +5,7 @@ import entity.*;
 
 public class MainMgr {
 	//change path of orderList.txt to local path
-	public static final String PATH = "/Users/shanchieng/Desktop/Git/CZ2002Assigment/orderList.txt";
+	public static final String PATH = "";
 	public static int x;
 	public static void main(String[] args) {
 		
