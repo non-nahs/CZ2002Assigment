@@ -22,7 +22,7 @@ public class Staff {
 	}
 	// end of consructor
 
-	public void viewReservations() {
+	public static void viewReservations() {
 		// TODO - implement Staff.viewReservations
 		// https://java-programming.mooc.fi/part-4/3-files-and-reading-data
 		// we create a scanner for reading the file
@@ -39,7 +39,7 @@ public class Staff {
 		}
 	}
 
-	public void viewSalesRevenue() {
+	public static void viewSalesRevenue() {
 		// TODO - implement Staff.viewSalesRevenue
 		// https://java-programming.mooc.fi/part-4/3-files-and-reading-data
 		try (Scanner scanner = new Scanner(Paths.get("revenue.txt"))) {
