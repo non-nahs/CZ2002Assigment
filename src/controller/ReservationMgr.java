@@ -46,6 +46,7 @@ public class ReservationMgr {
 					}
 					else{
 						reservationList.add(new Reservation(cusName,cusContact,pax,bookingTime,MainMenuUI.table.get(testBook(pax))));
+						MainMenuUI.table.get(testBook(pax)).bookTable();
 						System.out.print("Reservation booked successfully");
 					}
 				}
@@ -80,15 +81,21 @@ public class ReservationMgr {
 		}
 	}
 
-	/*
-	public boolean checkTableAvail(int index) { 
-		// see table available or not
-		//for (int i = 0; i < MainMenuUI.table.size(); i++){
+	public void checkTableAvail() { 
+		System.out.println("TableNo. \t TableCapacity \t TableStatus");
+		for (int i = 0; i < MainMenuUI.table.size(); i++){
+			System.out.print(MainMenuUI.table.get(i).getTableID() + "\t\t");
+			System.out.print(MainMenuUI.table.get(i).getSeatCapacity() + "\t\t");
+			if(MainMenuUI.table.get(i).getTableStatus()){
+				System.out.print("Occupied" + "\n");
+			}
+			else{
+				System.out.print("Unoccupied" + "\n");
+			}
 			
-		//}
-		//return MainMenuUI.table.getTableStatus();
+		}
 	}
-	*/
+
 	public int testBook(int pax ){ // purpose is to return a tableID if table is found
 		int tableID = -1;
 		for(int i = 0; i <  MainMenuUI.table.size();i++){
@@ -109,6 +116,7 @@ public class ReservationMgr {
 			System.out.print("cusName: " + cusName);
 			System.out.print("cusContaact" + cusContact);
 			if(cusContact == reservationList.get(i).getCusContact() && cusName.equals(reservationList.get(i).getCusName())){
+				reservationList.get(i).getTable().releaseTable();
 				reservationList.remove(i);
 				removed = 1;
 				break;
