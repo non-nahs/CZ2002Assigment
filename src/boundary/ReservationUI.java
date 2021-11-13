@@ -32,9 +32,10 @@ public class ReservationUI {
 		System.out.println("----------------------------------");
 		System.out.println("Please choose an option");
 		System.out.println("1. View Reservations");
-		System.out.println("2. Add Reservation");
-		System.out.println("3. Remove Reservation");
-		System.out.println("4. Return to main menu");
+		System.out.println("2. Check Table Availability");
+		System.out.println("3. Add Reservation");
+		System.out.println("4. Remove Reservation");
+		System.out.println("5. Return to main menu");
 		System.out.println("----------------------------------");
 		
 		choice = sc.nextInt();
@@ -43,8 +44,10 @@ public class ReservationUI {
 				 	displayMgr.getReservation();
 					displayReservation();
 				 break;
-
-				 case 2:  // adds reservation
+				 case 2:
+					reserveMgr.checkTableAvail();
+				 break;
+				 case 3:  // adds reservation
 				 	displayMgr.addReservation();
 					sc.nextLine();
 					System.out.print("Enter name of customer: ");
@@ -61,7 +64,7 @@ public class ReservationUI {
 					reserveMgr.createReservation(cusName,cusContact,pax,bookingTime);
 				 break;
 				 
-				 case 3: //removes reservation
+				 case 4: //removes reservation
 				 	sc.nextLine(); // "flush"
 					System.out.print("Enter customer's name: ");
 					cusName = sc.nextLine();
@@ -73,7 +76,7 @@ public class ReservationUI {
 				 	displayMgr.removeReservation();
 					
 				break;
-				case 4: //return to main menu
+				case 5: //return to main menu
 					System.out.println("Returning to main menu"); 
 				break;
 			}

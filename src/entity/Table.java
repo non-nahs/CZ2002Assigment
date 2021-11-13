@@ -60,7 +60,7 @@ public class Table {
 			tables.add(new Table(i,8)); // 8pax x 5
 		}
 		for(i=16;i<=18;i++){
-			tables.add(new Table(i,12));// 12pax x 2
+			tables.add(new Table(i,12));// 12pax x 3
 		}
 	}
 }
