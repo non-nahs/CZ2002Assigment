@@ -2,6 +2,8 @@
 package entity;
 import java.util.ArrayList;
 
+import boundary.MainMenuUI;
+
 public class Table {
 
 	Reservation reservation;
@@ -47,7 +49,7 @@ public class Table {
 
 	public static void initTable(){
 		int i = 0;
-		ArrayList<Table> tables = new ArrayList<Table>();
+		ArrayList<Table> tables = MainMenuUI.table;
 		for (i=1; i<=5;i++){
 			tables.add(new Table(i,2));	// 2pax x 5
 		}

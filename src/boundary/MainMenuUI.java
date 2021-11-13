@@ -1,6 +1,8 @@
 package boundary;
 
 import entity.*;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import controller.DisplayMgr;
@@ -16,7 +18,7 @@ public class MainMenuUI {
 	public static OrderInvoice orderInvoice = new OrderInvoice();
 	//public static Reservation reservation = new Reservation();
 	//public static Staff staff = new Staff();
-	//public static Table table = new Table();
+	public static ArrayList<Table> table = new ArrayList<Table>();
 	//public static SalesRevenue salesRevenue = new SaleRevenue();
 
 
@@ -27,6 +29,7 @@ public class MainMenuUI {
 	public static InvoiceUI invoiceUI = new InvoiceUI();
 	public static ReservationUI reserveUI = new ReservationUI();
 	public static SalesReportUI salesReportUI = new SalesReportUI();
+
 
 	// initiate variables
 	int choice;
