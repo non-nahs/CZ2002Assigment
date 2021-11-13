@@ -25,6 +25,7 @@ x
 	private void clearExpiry() {
 		// TODO - implement ReservationMgr.timeoutReservation
 		throw new UnsupportedOperationException();
+		// basically this method del array entries that pass expired date
 	}
 
 	public void checkTableAvail() {
