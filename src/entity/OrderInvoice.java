@@ -2,6 +2,10 @@
 package entity;
 
 import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.time.*;
 
 public class OrderInvoice {
@@ -25,6 +29,22 @@ public class OrderInvoice {
 		this.svcTax = 0;
 		this.finalTotal = 0;
 	} 
+
+	public void initOrderInvoice() {
+		//insert ur path name to this place
+		
+		try(Scanner sc = new Scanner(Paths.get("orderList.txt"))) {
+			
+			while (sc.hasNextLine()) {
+				System.out.println(sc.nextLine());
+			}
+
+			
+		} catch(Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		
+	}
 
 	public LocalDate getTimeStamp(){
 		return this.timeStamp;

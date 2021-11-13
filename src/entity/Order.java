@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Order {
 
 	private ArrayList<MenuItem> order  = new ArrayList<MenuItem>();
+	private ArrayList<SetPromotionPackage> setOrder = new ArrayList<SetPromotionPackage>();
 	private double pretaxTotal;
 
 	public void viewOrder() {
@@ -13,14 +14,24 @@ public class Order {
 			System.out.println(m.getName());
 	}
 
-	public void addItem(MenuItem a) {
+	public void addItem(MenuItem menuItem) {
 		// TODO - implement Order.addItem
-		order.add(a);		
+		order.add(menuItem);		
 	}
 
-	public void removeItem(MenuItem a) {
+	public void removeItem(MenuItem menuItem) {
 		// TODO - implement Order.removeItem
-		order.remove(a);		
+		order.remove(menuItem);		
+	}
+
+	public void addSet(SetPromotionPackage set) {
+		// TODO - implement Order.addItem
+		setOrder.add(set);		
+	}
+
+	public void removeSet(SetPromotionPackage set) {
+		// TODO - implement Order.removeItem
+		setOrder.remove(set);		
 	}
 
 	public void calPretaxTotal() {
