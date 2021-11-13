@@ -38,7 +38,8 @@ public class PromotionUI {
 					addToOrder();
 					break;
 				 case 2:  //add promotion set
-				 	addPromoSet();
+				 sc.nextLine();
+				 addPromoSet();
 				 break;
 				 case 3:  // remove promotion set
 				 	rmPromoSet();
@@ -89,7 +90,7 @@ public class PromotionUI {
 		System.out.println("---------------------------------");
 		System.out.println("Please enter name of set package");
 		System.out.println("---------------------------------");
-		sc.nextLine(); //!!!!!!!!!!!!!!!!!!!!!if come from editPromoSet, need enter 2 times!!
+		//sc.nextLine(); //!!!!!!!!!!!!!!!!!!!!!if come from editPromoSet, need enter 2 times!!
 		name = sc.nextLine();
 
 		System.out.println("---------------------------------");
@@ -126,7 +127,7 @@ public class PromotionUI {
 			System.out.println("Add more items? 0-yes 1-no");
 			System.out.println("-----------------------------");
 			done = sc.nextInt();
-			System.out.println(done);
+			
 		} //when done == 1, not adding anymore items. exit loop
 
 		SetPromotionPackage newSet = new SetPromotionPackage(name, price, setItems);
@@ -172,6 +173,7 @@ public class PromotionUI {
 		for(int i=0; i<tempSetPackages.size(); i++){
 			tempSet = tempSetPackages.get(i);
 			if(name.equals(tempSet.getPromotionName())){
+				menu.removeSet(tempSet);
 				addPromoSet();
 				System.out.println("Set was updated!");
 				break;

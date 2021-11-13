@@ -13,6 +13,7 @@ public class MainMenuUI {
 
 	// initiate entity classes
 	public static Menu menu = new Menu();
+	public static SetPromotionPackage setPromo = new SetPromotionPackage();
 	public static Customer customer = new Customer();
 	public static Order order = new Order();
 	public static OrderInvoice orderInvoice = new OrderInvoice();
@@ -43,7 +44,7 @@ public class MainMenuUI {
 			System.out.println("----------------------------------");
 			System.out.println("Select a function to perform: ");
 			System.out.println("1: Item menu");
-			System.out.println("2: Promotion items menu");
+			System.out.println("2: Promotion set menu");
 			System.out.println("3: Order menu");
 			System.out.println("4: Reservation menu");
 			System.out.println("5: Print order invoice");
