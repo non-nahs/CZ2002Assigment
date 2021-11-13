@@ -79,6 +79,6 @@ public class MainMenuUI {
 
 	public void initData() {
 		menu.initMenu();
-		orderInvoice.initOrderInvoice();
+		orderInvoice.initInvoice();
 	}
 }

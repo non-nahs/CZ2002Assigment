@@ -5,6 +5,7 @@ import java.util.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.*;
 
@@ -20,7 +21,7 @@ public class OrderInvoice {
 	private double svcTax;
 	private double finalTotal;
 	
-	public OrderInvoice(){
+	public OrderInvoice() {
 		this.timeStamp = LocalDate.now(ZoneId.systemDefault());  // dunno works or not
 		//membership = false;
 		this.b4DiscTotal = 0;
@@ -30,23 +31,35 @@ public class OrderInvoice {
 		this.finalTotal = 0;
 	} 
 
-	public void initOrderInvoice() {
-		//insert ur path name to this place
-		
-		try(Scanner sc = new Scanner(Paths.get("orderList.txt"))) {
+	public void initInvoice() {
+		// insert ur path name to this place
+		// copy path of orderList.txt
+		Path path = Paths.get("/Users/shanchieng/Desktop/Git/CZ2002Assigment/src/dataBase/orderList.txt");
+		try(Scanner sc = new Scanner(path)) {
 			
 			while (sc.hasNextLine()) {
 				System.out.println(sc.nextLine());
 			}
-
 			
 		} catch(Exception e) {
-			System.out.println("Error: " + e.getMessage());
+			System.out.println("Error: " + e.getMessage() + e.getLocalizedMessage());
 		}
-		
 	}
 
-	public LocalDate getTimeStamp(){
+	public void printInvoice() {
+		Path path = Paths.get("/Users/shanchieng/Desktop/Git/CZ2002Assigment/src/dataBase/orderList.txt");
+		try(Scanner sc = new Scanner(path)) {
+			
+			while (sc.hasNextLine()) {
+				System.out.println(sc.nextLine());
+			}
+			
+		} catch(Exception e) {
+			System.out.println("Error: " + e.getMessage() + e.getLocalizedMessage());
+		}
+	}t
+
+	public LocalDate getTimeStamp() {
 		return this.timeStamp;
 	}
 
@@ -54,7 +67,7 @@ public class OrderInvoice {
 		this.totalOrders.add(newOrder);
 	}
 
-	public double sumTotal(){
+	public double sumTotal() {
 		double totalSum = 0;
 		for(Order o : this.totalOrders){
 			totalSum += o.getPretaxTotal();
