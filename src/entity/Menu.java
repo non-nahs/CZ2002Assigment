@@ -1,16 +1,33 @@
 package entity;
-//runhan
 import java.util.ArrayList;
 
 import entity.MenuItem.Category;
-import entity.MenuItem;
 
+/**
+ * Represents a menu containing menu items and set promotion packages.
+ * @author Yu Runhan
+ * @version 1.0
+ * @since 2021-10-15
+ */
 public class Menu {
 
+	/**
+	 * The list of ala-carte menu items in the menu.
+	 */
 	private ArrayList<MenuItem> items = new ArrayList<MenuItem>();
+
+	/**
+	 * The list of set promotion packages in the menu.
+	 * Each set promotion package contains a list of ala-carte menu items.
+	 */
 	private ArrayList<SetPromotionPackage> sets = new ArrayList<SetPromotionPackage>();
 
 	//print ala carte menu
+	/**
+	 * Displays all the ala-carte menu items in the menu.
+	 * The items are displayed under their respective categories.
+	 * Each item's name, price and description will be displayed.
+	 */
 	public void printAlaCarteMenu() { 
 		//for design principles: move each print e.g. print main course to a new class, then call the classes to print here?
 		MenuItem tempItem;
@@ -43,12 +60,13 @@ public class Menu {
 				System.out.println(tempItem.toString(tempItem)+"\n");
 			}
 		}
-
-
 	}
 
-
 	//print promo menu
+	/**
+	 * Displays all the set promotion packages in the menu.
+	 * The 
+	 */
 	public void printPromoMenu(){ 
 		SetPromotionPackage tempSet;
 		String name;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Represents a set promotion package in the menu.
- * A set promotion package can contain many menu items.
+ * A set promotion package can contain many ala-carte menu items.
  * @author Yu Runhan
  * @version 1.0
  * @since 2021-10-15
@@ -27,7 +27,8 @@ public class SetPromotionPackage {
 	private ArrayList<MenuItem> setItems = new ArrayList<MenuItem>(); 
 
 	/**
-	 * Creates an empty set promotion package, constructor
+	 * Class constructor.
+	 * Creates an empty set promotion package.
 	 */
 	public SetPromotionPackage() {
 		promotionName = "";
@@ -36,8 +37,9 @@ public class SetPromotionPackage {
 	}
 
 	/**
+	 * Class constructor.
 	 * Creates a new set promotion package with the given name, price and list of menu items.
-	 * The list of menu items should exist in the menu.
+	 * The list of menu items given should exist in the menu.
 	 * @param name This set promotion package's name.
 	 * @param price This set promotion package's price.
 	 * @param items This set promotion package's menu items.
@@ -74,14 +76,10 @@ public class SetPromotionPackage {
 		return setItems;
 	}
 
-	// public int getSetSize() {
-	// 	return setItems.size();
-	// }
-
 	//updating the attributes (setters)
 	/**
 	 * Changes this set promotion package's name.
-	 * @param newName
+	 * @param newName The new name that this set promotion package's name will be changed to.
 	 */
 	public void updatePromotionName(String newName){
 		promotionName = newName;
