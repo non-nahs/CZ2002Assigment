@@ -7,6 +7,9 @@ import entity.Menu;
 import entity.MenuItem;
 import entity.Order;
 import entity.SetPromotionPackage;
+import java.io.FileWriter;
+import java.time.*;
+
 
 public class PromotionUI {
 
@@ -53,6 +56,7 @@ public class PromotionUI {
 		ArrayList<SetPromotionPackage> tempSetPackages = menu.getSetPackages();
 		SetPromotionPackage tempSet = new SetPromotionPackage();
 		String name;
+		LocalDate orderDate;
 
 		System.out.println("-------------------------------");
 		System.out.println("Please enter name of the set");
@@ -64,6 +68,14 @@ public class PromotionUI {
 			tempSet = tempSetPackages.get(i);
 			if(name.equals(tempSet.getPromotionName())){
 				order.addSet(tempSet);
+				orderDate = LocalDate.now();
+				try (FileWriter writer = new FileWriter("orderList.txt", true)){;  //add to promoUI
+					writer.write(orderDate + "\t" + "Set : " + tempSet.getPromotionName() + "\t" + tempSet.getPromotionPrice() + "\n");
+					writer.flush();
+					writer.close();
+				} catch (Exception e) {
+					System.out.println("Error: " + e.getMessage());
+				}
 				System.out.println("Added to order!");
 			}
 		}
