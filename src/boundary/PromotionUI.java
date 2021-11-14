@@ -12,7 +12,7 @@ import java.io.FileWriter;
 import java.time.*;
 
 /**
- * Represents a boundary class to get user input to perform methods related to set promotion packages.
+ * Represents a boundary class to get user input to perform methods related to set promotion packages on the menu in the main menu.
  * @author Yu Runhan
  * @version 1.0
  * @since 2021-10-15
@@ -24,21 +24,21 @@ public class PromotionUI {
 	//DisplayMgr displayMgr = MainMenuUI.displayMgr;
 
 	/**
-	 * The menu this user interface will be using to get set promotion package information from.
+	 * The menu that this user interface will be using to get set promotion packages' information from.
 	 */
 	Menu menu = MainMenuUI.menu;
 
 	/**
-	 * The order this user interface will add set promotion packages to.
-	 * Each set from menu can be added to this order.
+	 * The order that this user interface adds set promotion packages to.
+	 * Each set promotion package from the menu can be added to this order.
 	 */
 	Order order = MainMenuUI.order;
 
 	/**
-	 * Displays the options a user can choose to do with set promotion packages.
-	 * Gets the user's input choice.
+	 * Displays the options a user can choose to do with set promotion packages in the menu.
+	 * Gets the user's input option choice.
 	 * The options are: 
-	 * adding a set to the order, adding or removing a set promotion package to the menu, updating a set promotion package in the menu, and returning to the main menu.
+	 * adding a set promotion package to the order, adding or removing a set promotion package to the menu, updating a set promotion package in the menu, and returning to the main menu display.
 	 */
 	public void promotionMenu() {
 		// TODO - implement PromotionUI.displayPromotion
@@ -110,8 +110,8 @@ public class PromotionUI {
 
 	/**
 	 * Asks the user to input the details of a new set promotion package to be added to the menu in main menu.
-	 * Adds the set promotion package with the given details to the menu in main menu.
-	 * The details the user inputs are: 
+	 * Adds the set promotion package with the given details from user input to the menu in main menu.
+	 * The details the user inputs give are: 
 	 * the name to be given to this new set promotion package,
 	 * the price of this new set promotion package,
 	 * the names of the ala-carte items in the menu to be contained in this set promotion package.
@@ -197,10 +197,10 @@ public class PromotionUI {
 	}
 
 	/**
-	 * Updates the promotion set with details received from user input.
-	 * Asks for user input of the name of the set promotion package that is to be updated.
+	 * Updates the promotion set with corresponding details received from user input.
+	 * Asks for user input of the name of the set promotion package on the menu that is to be updated.
 	 * Removes the set promotion package that matches the name given by user input.
-	 * Adds a new set promotion package with new details received from user input, into the menu in main menu.
+	 * Adds a new set promotion package to the main menu with new details received from user input to replace the details of the removed set.
 	 * The new details are the name of the set promotion package, price, and names of the ala-carte items to be contained in this set promotion package.
 	 */
 	private void editPromoSet() { //add and remove items in the package
