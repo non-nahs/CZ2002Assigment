@@ -63,13 +63,13 @@ public class SalesRevenue {
 		return tSales;
 	}
 	// Print sales report by month or day. If true, print by month. Prints by day otherwise.
-	public void printSalesReport(int month, int day, boolean b) {
+	public void printSalesReport(int month, int day) {
 		overallSales=0;
 		int i=0;
 		ArrayList<String[]> allOrders = new ArrayList<String[]>();
 
 		allOrders = readSalesData();
-		
+		System.out.println("----------------------------------");
 		while (i < allOrders.size()) {
 			try {
 				Date date = new SimpleDateFormat("yyyy-MM-dd").parse(allOrders.get(i)[0]);
@@ -82,11 +82,11 @@ public class SalesRevenue {
 				
 				if (month == newMonth) {
 					if (day == 0) {
-						System.out.println(allOrders.get(i)[1] + " " + allOrders.get(i)[2]);
+						System.out.println(allOrders.get(i)[1] + "\t\t$" + allOrders.get(i)[2]);
 						overallSales += Double.parseDouble(allOrders.get(i)[2]);
 					}
 					else if (day == newDate) {
-						System.out.println(allOrders.get(i)[1] + " " + allOrders.get(i)[2]);
+						System.out.println(allOrders.get(i)[1] + "\t\t" + allOrders.get(i)[2]);
 						overallSales += Double.parseDouble(allOrders.get(i)[2]);
 					}
 				}
