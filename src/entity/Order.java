@@ -1,21 +1,30 @@
 package entity;
 
 import java.util.ArrayList;
+//import boundary.MainMenuUI;
 
-import boundary.MainMenuUI;
-
+/**
+ * @author Yap Eugene
+ * @version 1.0
+ * @since 2021-10-15
+ */
 public class Order {
 
 	private static ArrayList<MenuItem> order  = new ArrayList<MenuItem>();
 	private static ArrayList<SetPromotionPackage> setOrder = new ArrayList<SetPromotionPackage>();
 	private double pretaxTotal;
 
+	/**
+	 * Prints name of all menu items currently in this order.
+	 */
 	public void viewOrder() {
-		// TODO - implement Order.viewOrder
 		for (MenuItem m : order)
 			System.out.println(m.getName());
 	}
 
+	/**
+	 * Deletes all menu items currently in this order.
+	 */
 	public void clearOrder() {
 		order.removeAll(order);
 		setOrder.removeAll(setOrder);
@@ -23,42 +32,68 @@ public class Order {
 		pretaxTotal = 0;
 	}
 
+	/**
+	 * Add this menu item to order ArrayList<MenuItem>. 
+	 * @param menuItem This Order's a la carte menu item.
+	 */
 	public void addItem(MenuItem menuItem) {
-		// TODO - implement Order.addItem
 		order.add(menuItem);		
 	}
 
+	/**
+	 * Remove this menu item from order ArrayList<MenuItem>. 
+	 * @param menuItem This Order's a la carte menu item.
+	 */
 	public void removeItem(MenuItem menuItem) {
-		// TODO - implement Order.removeItem
 		order.remove(menuItem);		
 	}
 
+	/**
+	 * Add this Promotion set to setOrder ArrayList<SetPromotionPackage>.
+	 * @param set This Order's promotion sets. 
+	 */
 	public void addSet(SetPromotionPackage set) {
-		// TODO - implement Order.addItem
 		setOrder.add(set);		
 	}
 
+	/**
+	 * Remove this Promotion set from setOrder ArrayList<SetPromotionPackage>.
+	 * @param set This Order's Set Promotion Package. 
+	 */
 	public void removeSet(SetPromotionPackage set) {
-		// TODO - implement Order.removeItem
 		setOrder.remove(set);		
 	}
 
+	/**
+	 * Calculate pre tax total for this Order.
+	 */
 	public void calPretaxTotal() {
-		// TODO - implement Order.calPretaxTotal
 		for (MenuItem m : order)
 			this.pretaxTotal += m.getPrice();
 		for (SetPromotionPackage set : setOrder)
 			pretaxTotal += set.getPromotionPrice();
 	}
 
+	/**
+	 * Gets pre tax total for this Order.
+	 * @return This Order's pre tax total. 
+	 */
 	public double getPretaxTotal() {
 		return this.pretaxTotal;
 	}
 
+	/**
+	 * Gets all a la carte menu items in this order.
+	 * @return This Order's a la carte menu items. 
+	 */
 	public ArrayList<MenuItem> getOrder() {
 		return order;
 	}
 
+	/**
+	 * Gets all prmotion sets in this order.
+	 * @return This Order's promotion sets. 
+	 */
 	public ArrayList<SetPromotionPackage> getSetOrder() {
 		return setOrder;
 	}
