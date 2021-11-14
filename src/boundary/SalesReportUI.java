@@ -39,7 +39,7 @@ public class SalesReportUI {
 		SalesRevenue salesRevenue = MainMenuUI.salesRevenue;
 		System.out.println("Please enter month to view: (1-12)");
 		int month = sc.nextInt();
-		salesRevenue.printSalesReport(month, 0, true);
+		salesRevenue.printSalesReport(month, 0);
 	}
 
 	private void printByDay() {
@@ -59,7 +59,6 @@ public class SalesReportUI {
 			System.out.println("Please enter day to view: (1-31)");
 			day = sc.nextInt();
 		}
-		
-		salesRevenue.printSalesReport(month, day, false);
+		salesRevenue.printSalesReport(month, day);
 	}
 }
