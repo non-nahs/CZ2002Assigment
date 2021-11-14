@@ -159,22 +159,34 @@ public class Menu {
 	}
 
 	/**
-	 * Adds the given set promotion package into this menu's current list of set packages.
-	 * @param newSet The set promotion package to be added into this menu's current list of set packages
+	 * Adds the given set promotion package into this menu's current list of set promotion packages.
+	 * @param newSet The set promotion package to be added into this menu's current list of set promotion packages.
 	 */
 	public void addSet(SetPromotionPackage newSet){
 		sets.add(newSet);
 	}
 
+	/**
+	 * Removes the given set promotion package from this menu's current list of set promotion packages.
+	 * @param set The set promotion package to be removed from this menu's current list of set promotion packages.
+	 */
 	public void removeSet(SetPromotionPackage set){
 		sets.remove(set);
 		//set = null;
 	}
 
+	/**
+	 * Gets the list of ala-carte items on this menu.
+	 * @return this menu's ala-carte items.
+	 */
 	public ArrayList<MenuItem> getMenuItems() {
 		return items;
 	}
 
+	/**
+	 * Gets the list of set promotion packages on this menu.
+	 * @return this menu's set promotion packages.
+	 */
 	public ArrayList<SetPromotionPackage> getSetPackages(){
 		return sets;
 	}
