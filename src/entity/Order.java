@@ -10,8 +10,19 @@ import java.util.ArrayList;
  */
 public class Order {
 
+	/**
+	 * List of a la carte items in this order.
+	 */
 	private static ArrayList<MenuItem> order  = new ArrayList<MenuItem>();
+	
+	/**
+	 * List of promotion sets in this order.
+	 */
 	private static ArrayList<SetPromotionPackage> setOrder = new ArrayList<SetPromotionPackage>();
+	
+	/**
+	 * The subtotal of the order before gst, service charge and discounts. 
+	 */
 	private double pretaxTotal;
 
 	/**

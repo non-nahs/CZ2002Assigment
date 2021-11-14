@@ -1,8 +1,8 @@
 package entity;
 
 import java.util.ArrayList;
-import java.util.Scanner;
-import java.nio.file.Paths;
+//import java.util.Scanner;
+//import java.nio.file.Paths;
 
 /**
  * Represents a Staff working in the restaurant
@@ -13,10 +13,30 @@ import java.nio.file.Paths;
 
 public class Staff {
 
+	/**
+	 * Identification number of this staff.
+	 */
 	private int staffID;
+	
+	/**
+	 * Name of this staff.
+	 */
 	private String staffName;
-	private boolean gender;  // false = female // true = male
+	
+	/**
+	 * Gender of this staff.
+	 * false = female, true = male
+	 */
+	private boolean gender; 
+	
+	/**
+	 * Job title of this staff.
+	 */
 	private String jobTitle;
+	
+	/**
+	 * List of all staffs working in the restaurant. 
+	 */
 	private static ArrayList<Staff> staffs  = new ArrayList<Staff>();
 	
 	/**
