@@ -51,34 +51,19 @@ public class OrderInvoice {
 		OrderInvoice.finalTotal = 0;
 	} 
 
-	public void initInvoice() {
-		// insert ur path name to this place
-		// copy path of orderList.txt
-		/*Path path = Paths.get("orderList.txt");
-		try(Scanner sc = new Scanner(path)) {
-			
-			while (sc.hasNextLine()) {
-				System.out.println(sc.nextLine());
-			}
-			
-		} catch(Exception e) {
-			System.out.println("Error: " + e.getMessage() + e.getLocalizedMessage());
-		}*/
-	}
 
-
+	/**
+	 * Call all set methods for orderInvoice
+	 * Display this orderInvoice's details with the following:
+	 * 		- subtotal
+	 * 		- service charge
+	 * 		- GST charge
+	 * 		- discounted amount
+	 * 		- final total
+	 * @param membership	customer's membership status to be used for this orderInvoice's discount
+	 */
 	public void printInvoice(Boolean membership) {
-		//Path path = Paths.get("orderList.txt");
-		/*try(Scanner sc = new Scanner(new File(MainMgr.PATH))) {
-			//sc.reset();
-			while (sc.hasNextLine()) {
-				System.out.println(sc.nextLine());
-			}
-			sc.close();
-		} catch(Exception e) {
-			System.out.println("Error: " + e.getMessage() + e.getLocalizedMessage());
-		}*/
-		
+
 		order.calPretaxTotal();
 		b4DiscTotal = order.getPretaxTotal();
 		svcTax = b4DiscTotal * 0.1;
@@ -110,6 +95,11 @@ public class OrderInvoice {
 		order.clearOrder();
 	}
 
+
+	/**
+	 * Writes this orderInvoice to a txt file.
+	 * @throws IOException throws input/ouput error message if file does not exist
+	 */
 	public void invoice2txt() throws IOException {
 		ArrayList <Order> totalOrder= new ArrayList<Order>();
 		//converts object from order to total order to add to invoice for sale revenue in future
@@ -154,17 +144,25 @@ public class OrderInvoice {
 		
 	}
 
+	/**
+	 * Get the time of when this OrderInvoice was created
+	 * @return this orderInvoice's timestamp.
+	 */
 	public LocalDate getTimeStamp() {
 		return this.timeStamp;
 	}
+
+	/**
+	 * Add new order made by customer to OrderInvoice
+	 */
 
 	public void includeOrder(Order newOrder){
 		this.totalOrders.add(newOrder);
 	}
 
 	/**
-	 * Set the entire 
-	 * @return
+	 * Set the total sum of items ordered by customer
+	 * @return total amount of items ordered for this invoice
 	 */
 	public double sumTotal() {
 		double totalSum = 0;
