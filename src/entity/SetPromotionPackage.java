@@ -76,13 +76,4 @@ public class SetPromotionPackage {
 		return setItems;
 	}
 
-	//updating the attributes (setters)
-	/**
-	//  * Changes this set promotion package's name.
-	//  * @param newName The new name that this set promotion package's name will be changed to.
-	//  */
-	// public void updatePromotionName(String newName){
-	// 	promotionName = newName;
-	// }
-
 }

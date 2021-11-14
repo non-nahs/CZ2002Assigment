@@ -96,39 +96,6 @@ public class MenuItem {
 		return price;
 	}
 
-	//setters
-	/**
-	//  * Changes this menu item's category to the new given category.
-	//  * @param category This menu item's new category.
-	//  */
-	// public void setCategory(Category category){
-	// 	this.category = category;
-	// }
-
-	// /**
-	//  * Changes this menu item's name to the new given name.
-	//  * @param name This menu item's new name.
-	//  */
-	// public void setName(String name){
-	// 	this.name = name;
-	// }
-
-	// /**
-	//  * Changes this menu item's description to the new given description.
-	//  * @param desc This menu item's new description.
-	//  */
-	// public void setDescription(String desc){
-	// 	this.description = desc;
-	// }
-
-	// /**
-	//  * Changes this menu item's price to the new given price.
-	//  * @param price This menu item's new price.
-	//  */ 
-	// public void setPrice(double price){
-	// 	this.price = price;
-	// }
-
 	/**
 	 * Convert the instance variables of this menu item to String.
 	 * String is formatted to show the name, price, and description of this menu item.
