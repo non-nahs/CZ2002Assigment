@@ -1,4 +1,6 @@
-//DELETE CLASS
+//DELETE CLASS?
+
+package entity;
 
 /**
  * Represents a customer that books a reservation and orders from the menu.
@@ -7,9 +9,6 @@
  * @version 1.0
  * @since 2021-10-15
  */
-
-package entity;
-
 public class Customer {
 
 	private String name; //first name last name
