@@ -26,16 +26,43 @@ import java.time.*;
 public class OrderInvoice {
 	static Order order = MainMenuUI.order;
 	static Customer cus = MainMenuUI.customer;
-	//Collection<Order> orders;
-	private LocalDate timeStamp;
-	private ArrayList<Order> totalOrders;
-	//private boolean membership;
-	private static double b4DiscTotal;   // added this for easier calculation bah....
-	private static double discountTotal;
-	private static double gstTax;
-	private static double svcTax;
-	private static double finalTotal;
 	private static final DecimalFormat df = new DecimalFormat("0.00");
+
+	/**
+	 * This is the time when OrderInvoice object is created.
+	 */
+	private LocalDate timeStamp;
+
+	/**
+	 * This is the ArrayList of all Orders made by customer.
+	 */
+	private ArrayList<Order> totalOrders;
+	
+	/**
+	 * This is the total ordered item amount before any discount.
+	 */
+	private static double b4DiscTotal;
+
+	/**
+	 * This is the total discount for all ordered item for this OrderInvoice
+	 */
+	private static double discountTotal;
+
+	/**
+	 * This is the GST tax for this OrderInvoice
+	 */
+	private static double gstTax;
+
+	/**
+	 * This is the service tax for this OrderInvoice
+	 */
+	private static double svcTax;
+
+	/**
+	 * This is the total payable amount for this OrderInvoice
+	 */
+	private static double finalTotal;
+	
 	
 	/**
 	 * Creates a blank sheet of orderInvoice with all the values being set to 0.
