@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.nio.file.Paths;
 
+/**
+ * Represents a Staff working in the restaurant
+ * @author Yap Eugene
+ * @version 1.0
+ * @since 2021-10-15
+ */
+
 public class Staff {
 
 	private int staffID;
@@ -12,18 +19,25 @@ public class Staff {
 	private String jobTitle;
 	private static ArrayList<Staff> staffs  = new ArrayList<Staff>();
 	
-	// constructor here
+	/**
+	 * Creates a new Staff with staffId, name, gender and job. 
+	 * @param sId This Staff's ID
+	 * @param n This Staff's name
+	 * @param g This Staff's gender
+	 * @param jd This Staff's job
+	 */
 	public Staff(int sId, String n, boolean g, String jd){
 		this.staffID = sId;
 		this.staffName = n;
 		this.gender = g;
 		this.jobTitle = jd;
-
 	}
-	// end of consructor
 
+	/**
+	 * Prints all lines in reservations.txt 
+	 * @exception e If fail to read reservations.txt
+	 */
 	public static void viewReservations() {
-		// TODO - implement Staff.viewReservations
 		// https://java-programming.mooc.fi/part-4/3-files-and-reading-data
 		// we create a scanner for reading the file
 		try (Scanner scanner = new Scanner(Paths.get("reservations.txt"))) {
@@ -39,8 +53,11 @@ public class Staff {
 		}
 	}
 
+	/**
+	 * Prints all lines in revenue.txt 
+	 * @exception e If fail to read revenue.txt
+	 */
 	public static void viewSalesRevenue() {
-		// TODO - implement Staff.viewSalesRevenue
 		// https://java-programming.mooc.fi/part-4/3-files-and-reading-data
 		try (Scanner scanner = new Scanner(Paths.get("revenue.txt"))) {
 			// we read the file until all lines have been read
@@ -54,36 +71,53 @@ public class Staff {
 			System.out.println("Error: " + e.getMessage());
 		}
 	}
-
+	
+	/**
+	 * Get the Name of this Staff
+	 * @return this Staff's name
+	 */
 	public String getName() {
-		// TODO - implement Staff.getName
 		return this.staffName;
 	}
 
+	/**
+	 * Get the Gender of this Staff.
+	 * Male = True, Female = False.
+	 * @return this Staff's gender
+	 */
 	public boolean getGender() {
-		// TODO - implement Staff.getGender
 		return this.gender;
 	}
 
+
+	/**
+	 * Get the StaffID of this Staff
+	 * @return this Staff's ID
+	 */
 	public int getStaffId() {
-		// TODO - implement Staff.getStaffId
 		return this.staffID;
 	}
 
+	/**
+	 * Get the Job Title of this Staff
+	 * @return this Staff's Job Title
+	 */
 	public String getJobTitle() {
-		// TODO - implement Staff.getJobTitle
 		return this.jobTitle;
 	}
 
 	/**
-	 * 
-	 * @param title
+	 * Changes the Job of this Staff
+	 * @param title This Staff's new Job. 
 	 */
 	public void setJobTitle(String title) {
-		// TODO - implement Staff.setJobTitle
 		this.jobTitle = title;
 	}
 
+	/**
+	 * Create 5 new Staffs.
+	 * Add each Staff to the ArrayList<Staff> staffs.
+	 */
 	public static void initStaff(){ // initialise Staffs
 		staffs.add(new Staff(1,"Johnathan",true,"Manager"));
 		staffs.add(new Staff(2,"Joeseph",true,"Supervisor"));
@@ -92,12 +126,18 @@ public class Staff {
 		staffs.add(new Staff(5,"Jolyne",false,"Waiter"));
 	}
 
+	/**
+	 * Prints each Staff's ID, Name, Gender and Job. 
+	 */
 	public void printStaff() {
 		System.out.println("ID  Name  Gender  Job");
 		for(Staff s : staffs)
 			System.out.println(s);
 	}
 
+	/**
+	 * Returns each Staff's ID, Name, Gender and Job. 
+	 */
 	@Override
 	public String toString() {
 		return this.staffID + " " + this.staffName + " " + this.gender + " " + this.jobTitle;

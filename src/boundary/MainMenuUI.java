@@ -25,7 +25,7 @@ public class MainMenuUI {
 	//public static Reservation reservation = new Reservation();
 	//public static Staff staff = new Staff();
 	public static ArrayList<Table> table = new ArrayList<Table>();
-	//public static SalesRevenue salesRevenue = new SaleRevenue();
+	public static SalesRevenue salesRevenue = new SalesRevenue();
 
 
 	// initiate boundary classes
