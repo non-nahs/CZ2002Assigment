@@ -10,11 +10,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import controller.DisplayMgr;
-
 public class MainMenuUI {
 	// initiate controller classses
-	public static DisplayMgr displayMgr = new DisplayMgr();
 
 	// initiate entity classes
 	public static Menu menu = new Menu();
@@ -62,7 +59,6 @@ public class MainMenuUI {
 			choice = sc.nextInt();
 			switch (choice) {
 				 case 1: 
-				 	displayMgr.getMenu();
 				 	itemsUI.itemsMenu();
 				 break;
 				 case 2: 

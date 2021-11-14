@@ -53,6 +53,7 @@ public class ReservationMgr {
 	 */
 	public void createReservation(String cusName,int cusContact, int pax, LocalTime bookingTime){
 		int failReserve = -1;
+		clearExpiry();
 		for(int i =0 ; i < reservationList.size(); i++){
 			if(cusName == reservationList.get(i).getCusName() && cusContact == reservationList.get(i).getCusContact()){
 				failReserve = 1;
@@ -135,6 +136,7 @@ public class ReservationMgr {
 	 * 
 	 */
 	public void checkTableAvail() { 
+		clearExpiry();
 		System.out.println("TableNo. \t TableCapacity \t TableStatus");
 		for (int i = 0; i < MainMenuUI.table.size(); i++){
 			System.out.print(MainMenuUI.table.get(i).getTableID() + "\t\t");
@@ -158,6 +160,9 @@ public class ReservationMgr {
 	 */
 	public int testBook(int pax ){ // purpose is to return a tableID if table is found
 		int tableID = -1;
+		//remove expired
+		clearExpiry();
+
 		for(int i = 0; i <  MainMenuUI.table.size();i++){
 			if(!MainMenuUI.table.get(i).getTableStatus()){ //if table is not occupied
 				if(pax <= MainMenuUI.table.get(i).getSeatCapacity()){
@@ -177,6 +182,7 @@ public class ReservationMgr {
 	 * @param cusContact	This is the customer's contact number of the targeted reservation
 	 */
 	public void removeReservation(String cusName, int cusContact) {
+		clearExpiry();
 		int removed = -1;
 		for(int i = 0; i<reservationList.size();i++){
 			//System.out.print("cusName: " + cusName);

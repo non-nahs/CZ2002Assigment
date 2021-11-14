@@ -1,4 +1,3 @@
-// Jasper
 package entity;
 
 import java.util.*;
@@ -6,18 +5,24 @@ import java.util.*;
 import boundary.MainMenuUI;
 import controller.MainMgr;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.time.*;
+//import java.io.File;
+//import java.io.FileNotFoundException;
+//import java.io.FileOutputStream;
+//import java.io.ObjectOutput;
+//import java.io.ObjectOutputStream;
+//import java.nio.file.Path;
+//import java.nio.file.Paths;
 
+/**
+ * Represents an OrderInvoice that a customer needs to pay in the restaurant
+ * @author Chieng Shuen Ern Shannon
+ * @version 1.0
+ * @since 2021-10-15
+ */
 public class OrderInvoice {
 	static Order order = MainMenuUI.order;
 	static Customer cus = MainMenuUI.customer;
@@ -32,6 +37,10 @@ public class OrderInvoice {
 	private static double finalTotal;
 	private static final DecimalFormat df = new DecimalFormat("0.00");
 	
+	/**
+	 * Creates a blank sheet of orderInvoice with all the values being set to 0.
+	 * The timeStamp of the orderInvoice will be set as the computer's current time upon construction.
+	 */
 	public OrderInvoice() {
 		this.timeStamp = LocalDate.now(ZoneId.systemDefault());  // dunno works or not
 		//membership = false;
@@ -56,6 +65,7 @@ public class OrderInvoice {
 			System.out.println("Error: " + e.getMessage() + e.getLocalizedMessage());
 		}*/
 	}
+
 
 	public void printInvoice(Boolean membership) {
 		//Path path = Paths.get("orderList.txt");
@@ -152,6 +162,10 @@ public class OrderInvoice {
 		this.totalOrders.add(newOrder);
 	}
 
+	/**
+	 * Set the entire 
+	 * @return
+	 */
 	public double sumTotal() {
 		double totalSum = 0;
 		for(Order o : this.totalOrders){
@@ -159,6 +173,13 @@ public class OrderInvoice {
 		}
 		return totalSum;
 	}
+	/**
+	 * Set discount amount a customer has received.
+	 * There will be a 10% discount of all orders made if membership is true
+	 * @param status this customer's membership status 
+	 * 					- True: have membership
+	 * 					- False: do not have membership
+	 */
 	public void calculateDiscount(boolean status) {
 		// assume member = flat 10% discount....
 		double totalSum = sumTotal();
@@ -167,39 +188,61 @@ public class OrderInvoice {
 			totalDisc = 0.1 * totalSum;
 		}
 		OrderInvoice.discountTotal = totalDisc; 
-
-		//throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Set the GST charge amont a customer needs to pay in the orderInvoice
+	 * GST charge is set to 7% of the total cost of orders (without other taxes)
+	 */
 	public void calculateGST() {
 		// assume GST = 7%
 		OrderInvoice.gstTax = 0.07 * sumTotal();
-		//throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Set the total amount of service charge a customer needs to pay in the orderInvoice
+	 * Service charge is set to 10% of the total cost of orders (without other taxes)
+	 */
 	public void calculateSVC() {
 		// assume svc charge = 10%
 		OrderInvoice.gstTax = 0.10 * sumTotal();
-		//throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Set the final total amount a customer needs to pay in the orderInvoice
+	 */
 	public void calculateTotal() {
 		OrderInvoice.finalTotal = sumTotal() + OrderInvoice.gstTax + OrderInvoice.svcTax - this.discountTotal;
-		//throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Gets the discount amount the customer has recieved
+	 * @return this orderInvoice's discount amount.
+	 */
 	public double getDiscount() {
 		return this.discountTotal;
 	}
 
+	/**
+	 * Gets the GST charge amount the customer needs to pay
+	 * @return this orderInvoice's GST charge amount.
+	 */
 	public double getGST() {
 		return OrderInvoice.gstTax;
 	}
 
+	/**
+	 * Gets the service charge amount the customer needs to pay
+	 * @return this orderInvoice's service charge amount.
+	 */
 	public double getSVC() {
 		return OrderInvoice.svcTax;
 	}
 
+	/**
+	 * Gets the final total amount the customer needs to pay
+	 * @return this orderInvoice's final total amount.
+	 */
 	public double getFinalTotal() {
 		return OrderInvoice.finalTotal;
 	}

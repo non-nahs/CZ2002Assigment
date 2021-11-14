@@ -1,14 +1,12 @@
 package boundary;
 
 import java.util.Scanner;
-import controller.DisplayMgr;
 import entity.OrderInvoice;
 import entity.Order;
 
 public class InvoiceUI {
 
 	Scanner sc = new Scanner(System.in);
-	DisplayMgr displayMgr = MainMenuUI.displayMgr;
 	OrderInvoice orderInvoice = MainMenuUI.orderInvoice;
 	Order order = MainMenuUI.order;
 	
