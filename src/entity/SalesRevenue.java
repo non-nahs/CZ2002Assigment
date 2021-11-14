@@ -2,16 +2,11 @@ package entity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-//import java.util.Date;
-import java.time.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-//import java.util.Scanner;
-//import java.util.regex.Matcher;
-//import java.util.regex.Pattern;
 import controller.MainMgr;
 
 /**
@@ -22,8 +17,6 @@ import controller.MainMgr;
  */
 public class SalesRevenue {
 
-	//private LocalDate salesPeriod;
-	//private ArrayList<OrderInvoice> salesMade;
 	private double overallSales;
 
 	/**
@@ -35,10 +28,6 @@ public class SalesRevenue {
 		this.overallSales = 0;
 	}
 
-	/*
-	public void includeOrderInvoice(OrderInvoice oi){
-		this.salesMade.add(oi);
-	}*/
 	
 	/**
 	 * Print sales report by month or day. if print sales report by month, day is set to 0. 
@@ -55,7 +44,6 @@ public class SalesRevenue {
 		while (i < allOrders.size()) {
 			try {
 				Date date = new SimpleDateFormat("yyyy-MM-dd").parse(allOrders.get(i)[0]);
-				//System.out.println(date);
 				Calendar cal = Calendar.getInstance();
 				cal.clear();
 				cal.setTime(date);
@@ -82,13 +70,6 @@ public class SalesRevenue {
 			System.out.println("Total Revenue for month " + month + " is $" + overallSales);
 		else
 			System.out.println("Total Revenue for day " + day + " is $" + overallSales);
-
-		/*
-		try {
-			Date reportDate = new SimpleDateFormat("yyyy-MM-dd").parse(date);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}*/
 	}
 
 	/**
@@ -105,7 +86,6 @@ public class SalesRevenue {
 			while ((tempString = br.readLine()) != null) {
 				tempLine = tempString.split("\t");
 				alOrders.add(tempLine);
-				//System.out.println(alOrders.get(i)[0] + " " + alOrders.get(i)[1] + " " + alOrders.get(i)[2]);
 				i++;
 			}
 		} catch (Exception e) {
