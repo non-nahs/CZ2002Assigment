@@ -5,10 +5,8 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 //import controller.MainMgr;
-import controller.DisplayMgr;
 import controller.ReservationMgr;
 
-import entity.Customer;
 
 /**
  * Boundary Class ReservatuionUI for user to interact with the reservation program.

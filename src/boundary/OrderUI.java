@@ -2,12 +2,10 @@ package boundary;
 
 import java.util.Scanner;
 import java.util.ArrayList;
-import controller.DisplayMgr;
 import entity.*;
 
 public class OrderUI {
 	Scanner sc = new Scanner(System.in);
-	DisplayMgr displayMgr = MainMenuUI.displayMgr;
 	ItemsUI itemsUI = MainMenuUI.itemsUI;
 
 	Order order = MainMenuUI.order;

@@ -1,13 +1,11 @@
 package boundary;
 
 import java.util.Scanner;
-import controller.DisplayMgr;
 import entity.SalesRevenue;
 
 public class SalesReportUI {
 
 	Scanner sc = new Scanner(System.in);
-	DisplayMgr displayMgr = MainMenuUI.displayMgr;
 	
 	public void printSaleReport() {
 		SalesRevenue salesRevenue = MainMenuUI.salesRevenue;

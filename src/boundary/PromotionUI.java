@@ -2,7 +2,6 @@ package boundary;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import controller.DisplayMgr;
 import controller.MainMgr;
 import entity.Menu;
 import entity.MenuItem;
