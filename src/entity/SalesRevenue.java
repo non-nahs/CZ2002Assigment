@@ -16,7 +16,7 @@ import controller.MainMgr;
 
 /**
  * Represents sales completed over a period of 1 day or 1 month.  
- * @author Yeo Kai Liang, Jasper
+ * @author Chieng Shuen Ern Shannon
  * @version 1.0
  * @since 2021-10-15
  */
