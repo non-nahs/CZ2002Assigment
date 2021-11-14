@@ -40,8 +40,6 @@ public class PromotionUI {
 	 * adding a set promotion package to the order, adding or removing a set promotion package to the menu, updating a set promotion package in the menu, and returning to the main menu display.
 	 */
 	public void promotionMenu() {
-		// TODO - implement PromotionUI.displayPromotion
-		//throw new UnsupportedOperationException();
 		int choice;
 		menu.printPromoMenu();
 		System.out.println("----------------------------------");

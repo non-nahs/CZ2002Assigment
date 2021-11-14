@@ -4,6 +4,12 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import entity.*;
 
+/**
+ * Represents a boundary class to get user input to perform methods related to the order. 
+ * @author Shannon Chieng
+ * @version 1.0
+ * @since 2021-10-15
+ */
 public class OrderUI {
 	Scanner sc = new Scanner(System.in);
 	ItemsUI itemsUI = MainMenuUI.itemsUI;
@@ -12,9 +18,11 @@ public class OrderUI {
 	SetPromotionPackage setPromo = MainMenuUI.setPromo;
 	Menu menu = MainMenuUI.menu;
 
+	/**
+	 * Displays opetions a user can choose to do with an order.
+	 * Gets user input. 
+	 */
 	public void orderMenu() {
-		// TODO - implement OrderUI.displayOrder
-		//throw new UnsupportedOperationException();
 		int choice;
 
 		System.out.println("----------------------------------");
@@ -47,7 +55,9 @@ public class OrderUI {
 			}
 	}
 
-
+	/**
+	 * Prints all the a la carte items and promotion sets currently in the order. 
+	 */
 	private void printOrder() {
 		ArrayList<MenuItem> tempMenuItems = order.getOrder();
 		ArrayList<SetPromotionPackage> tempSetPromo = order.getSetOrder();
@@ -58,6 +68,9 @@ public class OrderUI {
 			System.out.println(set.getPromotionName() + "\t" + set.getPromotionPrice());
 	}
 
+	/**
+	 * Remove a menuItem or promotion set from the current order.
+	 */
 	private void removeOrder() {
 		ArrayList<MenuItem> tempMenuItems = menu.getMenuItems();
 		ArrayList<SetPromotionPackage> tempSetPromoList = menu.getSetPackages();
