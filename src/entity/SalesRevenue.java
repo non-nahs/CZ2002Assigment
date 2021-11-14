@@ -79,6 +79,7 @@ public class SalesRevenue {
 	private void readSalesData() {
 		Scanner sc = new Scanner(MainMgr.PATH);
 		int i=0;
+		ArrayList<String[]> alOrders = new ArrayList<String[]>();
 		String[] tempLine;
 		String tempString;
 		Pattern dateFormat = Pattern.compile("(\\d{4}-\\d{2}-\\d{2})");
@@ -86,7 +87,9 @@ public class SalesRevenue {
 		try(BufferedReader br = new BufferedReader(new FileReader(MainMgr.PATH))) {
 			while ((tempString = br.readLine()) != null) {
 				tempLine = tempString.split("\t");
+				alOrders.add(tempLine);
 				System.out.println(tempLine[0] + " " + tempLine[1] + " " + tempLine[2]);
+				System.out.println(alOrders.get(i));
 				//Matcher readDate = dateFormat.matcher(tempLine);
 				//Date reportDate = new SimpleDateFormat("yyyy-MM-dd").parse(readDate.toString());
 			}

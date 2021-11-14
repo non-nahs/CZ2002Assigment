@@ -12,20 +12,20 @@ import entity.MenuItem.Category;
 public class Menu {
 
 	/**
-	 * The list of ala-carte menu items in the menu.
+	 * The list of ala-carte menu items in this menu.
 	 */
 	private ArrayList<MenuItem> items = new ArrayList<MenuItem>();
 
 	/**
-	 * The list of set promotion packages in the menu.
+	 * The list of set promotion packages in this menu.
 	 * Each set promotion package contains a list of ala-carte menu items.
 	 */
 	private ArrayList<SetPromotionPackage> sets = new ArrayList<SetPromotionPackage>();
 
 	//print ala carte menu
 	/**
-	 * Displays all the ala-carte menu items in the menu.
-	 * The items are displayed under their respective categories.
+	 * Displays all ala-carte menu items in this menu.
+	 * This menu's items are displayed under their respective categories.
 	 * Each item's name, price and description will be displayed.
 	 */
 	public void printAlaCarteMenu() { 
@@ -64,8 +64,8 @@ public class Menu {
 
 	//print promo menu
 	/**
-	 * Displays all the set promotion packages in the menu.
-	 * The 
+	 * Displays all the set promotion packages in this menu.
+	 * Each set promotion package's name, price and list of items with their respective descriptions are displayed.
 	 */
 	public void printPromoMenu(){ 
 		SetPromotionPackage tempSet;
@@ -92,9 +92,10 @@ public class Menu {
 		}
 	}
 
-	// public String toString(MenuItem item){
-	// 	return item.getName() + item.getPrice() + "\n" + item.getDescripton();
-	// }
+	/**
+	 * Initialise the default menu of this menu.
+	 * This default menu contains six ala-carte items and two set promotion packages.
+	 */
 	public void initMenu() {
 		/*MenuItem mItem = new MenuItem(Category.MAIN_COURSE, "Angus Beef Burger", "Brioche Bun, Angus Beef Patty, Tomato, Caramelized Onion, Cheddar, Sunny-Side Egg, Potato Fries", 18);
 		items.add(mItem);*/
@@ -121,10 +122,19 @@ public class Menu {
 		sets.add(new SetPromotionPackage("Fishy Tuesday", 22, set2));
 	}
 
+	/**
+	 * Adds an ala-carte item into the this menu's current list ala-carte items.
+	 * @param newItem New ala-carte item to be added into this menu's current list of ala-carte items.
+	 */
 	public void addItem(MenuItem newItem){
 		items.add(newItem);
 	}
 
+	/**
+	 * Removes the given ala-carte item from this menu's current list of ala-carte items.
+	 * Set promotion packages that contain the removed item will be removed as well.
+	 * @param item The ala-carte item to be removed from this menu's current list of ala-carte-items.
+	 */
 	public void removeItem(MenuItem item){
 		// first checks if item exists in a set promotion package, then removes package if it exists
 
@@ -132,7 +142,7 @@ public class Menu {
 		ArrayList<SetPromotionPackage> tempPromoList = sets;
 		SetPromotionPackage tempPromoSet = new SetPromotionPackage();
 		MenuItem tempItem = new MenuItem();
-		for (i=0; i<tempPromoList.size(); i++) {
+		for (i=0; i<tempPromoList.size(); i++) { //remove set if set contains this item
 			tempPromoSet = tempPromoList.get(i);
 			ArrayList<MenuItem> tempMList = tempPromoSet.getSetItems();
 			for (j=0; j<tempMList.size(); j++) {
@@ -143,26 +153,15 @@ public class Menu {
 				}
 			}
 		}
-
-		/*while (i<tempPromoList.size()) {
-			tempPromoSet = tempPromoList.get(i);
-			ArrayList<MenuItem> tempMList = tempPromoSet.getSetItems();
-			while (j<tempMList.size()) {
-				tempItem = tempMList.get(j);
-				if (item.getName().equals(tempItem.getName())) {
-					removeSet(tempPromoSet);
-					System.out.println("Set " + tempPromoSet.getPromotionID() + " was removed!");
-				}
-				j++;
-			}
-			i++;
-		}*/
-		
 		//removes item from list
 		items.remove(item);
 		//item = null;
 	}
 
+	/**
+	 * Adds the given set promotion package into this menu's current list of set packages.
+	 * @param newSet The set promotion package to be added into this menu's current list of set packages
+	 */
 	public void addSet(SetPromotionPackage newSet){
 		sets.add(newSet);
 	}
