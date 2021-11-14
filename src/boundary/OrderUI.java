@@ -47,10 +47,6 @@ public class OrderUI {
 			}
 	}
 
-	public void editOrder() {
-		// TODO - implement OrderUI.editOrder
-		//throw new UnsupportedOperationException();
-	}
 
 	private void printOrder() {
 		ArrayList<MenuItem> tempMenuItems = order.getOrder();

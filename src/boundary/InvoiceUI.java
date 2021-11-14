@@ -31,13 +31,8 @@ public class InvoiceUI {
 		member = sc.nextInt();
 		if (member==1) membership=true;
 
-		checkoutOrder();
 		orderInvoice.printInvoice(membership);
 		System.out.println("Returning to main menu");
-	}
-
-	private void checkoutOrder() {
-		
 	}
 
 }

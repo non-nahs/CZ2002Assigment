@@ -8,8 +8,6 @@ public class SalesReportUI {
 	Scanner sc = new Scanner(System.in);
 	
 	public void printSaleReport() {
-		SalesRevenue salesRevenue = MainMenuUI.salesRevenue;
-
 		int choice;
 
 		System.out.println("----------------------------------");
