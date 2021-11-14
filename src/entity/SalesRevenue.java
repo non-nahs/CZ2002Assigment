@@ -3,6 +3,7 @@
 package entity;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 //import java.util.Date;
 import java.time.*;
 import java.io.BufferedReader;
@@ -64,8 +65,41 @@ public class SalesRevenue {
 	// Print sales report by month or day. If true, print by month. Prints by day otherwise.
 	public void printSalesReport(int month, int day, boolean b) {
 		overallSales=0;
-		readSalesData();
-		/*String date = "2021-11-14";
+		int i=0;
+		ArrayList<String[]> allOrders = new ArrayList<String[]>();
+
+		allOrders = readSalesData();
+		
+		while (i < allOrders.size()) {
+			try {
+				Date date = new SimpleDateFormat("yyyy-MM-dd").parse(allOrders.get(i)[0]);
+				//System.out.println(date);
+				Calendar cal = Calendar.getInstance();
+				cal.clear();
+				cal.setTime(date);
+				int newMonth = cal.get(Calendar.MONTH)+1;
+				int newDate = cal.get(Calendar.DATE);
+				
+				if (month == newMonth) {
+					if (day == 0) {
+						System.out.println(allOrders.get(i)[1] + " " + allOrders.get(i)[2]);
+						overallSales += Double.parseDouble(allOrders.get(i)[2]);
+					}
+					else if (day == newDate) {
+						System.out.println(allOrders.get(i)[1] + " " + allOrders.get(i)[2]);
+						overallSales += Double.parseDouble(allOrders.get(i)[2]);
+					}
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			i++;
+		}
+		
+		System.out.println("Total Revenue for month " + month + " is $" + overallSales);
+
+		/*
 		try {
 			Date reportDate = new SimpleDateFormat("yyyy-MM-dd").parse(date);
 		} catch (ParseException e) {
@@ -76,26 +110,22 @@ public class SalesRevenue {
 
 	}
 
-	private void readSalesData() {
-		Scanner sc = new Scanner(MainMgr.PATH);
+	private ArrayList<String[]> readSalesData() {
 		int i=0;
 		ArrayList<String[]> alOrders = new ArrayList<String[]>();
 		String[] tempLine;
 		String tempString;
-		Pattern dateFormat = Pattern.compile("(\\d{4}-\\d{2}-\\d{2})");
 
 		try(BufferedReader br = new BufferedReader(new FileReader(MainMgr.PATH))) {
 			while ((tempString = br.readLine()) != null) {
 				tempLine = tempString.split("\t");
 				alOrders.add(tempLine);
-				System.out.println(tempLine[0] + " " + tempLine[1] + " " + tempLine[2]);
-				System.out.println(alOrders.get(i));
-				//Matcher readDate = dateFormat.matcher(tempLine);
-				//Date reportDate = new SimpleDateFormat("yyyy-MM-dd").parse(readDate.toString());
+				//System.out.println(alOrders.get(i)[0] + " " + alOrders.get(i)[1] + " " + alOrders.get(i)[2]);
+				i++;
 			}
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 		}
-
+		return alOrders;
 	}
 }
