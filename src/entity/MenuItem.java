@@ -17,7 +17,7 @@ public class MenuItem {
 	 * The description of this ala-carte menu item. 
 	 * The description includes the details of each menu item.
 	 */
-	private String desc;
+	private String description;
 
 	/**
 	 * The price of this ala-carte menu item.
@@ -43,7 +43,7 @@ public class MenuItem {
 	public MenuItem() {
 		category = Category.MAIN_COURSE;
 		name = "";
-		desc = "";
+		description = "";
 		price = 0;
 	}
 
@@ -59,7 +59,7 @@ public class MenuItem {
 	public MenuItem(Category category, String name, String desc, double price){
 		this.category = category;
 		this.name = name;
-		this.desc = desc;
+		this.description = desc;
 		this.price = price;
 	}
 
@@ -85,7 +85,7 @@ public class MenuItem {
 	 * @return this menu item's description.
 	 */
 	public String getDescripton(){
-		return desc;
+		return description;
 	}
 
 	/**
@@ -96,39 +96,6 @@ public class MenuItem {
 		return price;
 	}
 
-	//setters
-	/**
-	 * Changes this menu item's category to the new given category.
-	 * @param category This menu item's new category.
-	 */
-	public void setCategory(Category category){
-		this.category = category;
-	}
-
-	/**
-	 * Changes this menu item's name to the new given name.
-	 * @param name This menu item's new name.
-	 */
-	public void setName(String name){
-		this.name = name;
-	}
-
-	/**
-	 * Changes this menu item's description to the new given description.
-	 * @param desc This menu item's new description.
-	 */
-	public void setDescription(String desc){
-		this.desc = desc;
-	}
-
-	/**
-	 * Changes this menu item's price to the new given price.
-	 * @param price This menu item's new price.
-	 */ 
-	public void setPrice(double price){
-		this.price = price;
-	}
-
 	/**
 	 * Convert the instance variables of this menu item to String.
 	 * String is formatted to show the name, price, and description of this menu item.
@@ -136,7 +103,7 @@ public class MenuItem {
 	 * @return This menu item's name, price and description as a String.
 	 */
 	public String toString(MenuItem item){
-		return name + "\t\t" + price + "\n" + desc;
+		return name + "\t\t" + price + "\n" + description;
 	}
 
 }

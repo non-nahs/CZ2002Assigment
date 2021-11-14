@@ -84,7 +84,6 @@ public class MainMenuUI {
 
 	public void initData() {
 		menu.initMenu();
-		//orderInvoice.initInvoice();
 		/*
 		String path = Paths.get("orderList.txt");
 		FileWriter fileWriter;
