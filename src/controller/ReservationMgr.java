@@ -13,7 +13,9 @@ import java.util.Scanner;
 
 
 /**
- * Controller Class to control the flow of Reservation entity class.
+ * Reservation Controller Class that act as a bridge between user (Staff) and the entity class (Reservation).
+ * It prevents Staff from creating invalid Reservation objects.
+ * It returns meaningful information that Staff needs to see and know.
  * 
  * @author Yeo Kai Liang, Jasper
  * @version 1.0
