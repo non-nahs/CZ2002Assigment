@@ -2,14 +2,20 @@ package boundary;
 
 import entity.*;
 
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+//import java.io.FileNotFoundException;
+//import java.io.FileWriter;
+//import java.io.PrintWriter;
+//import java.nio.file.Path;
+//import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Represents a boundary class to get user input to perform methods related to the various menus in main menu.
+ * @author Shannon Chieng
+ * @version 1.0
+ * @since 2021-10-15
+ */
 public class MainMenuUI {
 	// initiate controller classses
 
@@ -40,8 +46,12 @@ public class MainMenuUI {
 	
 	Scanner sc = new Scanner(System.in);
 
+	/**
+	 * Displays menu options for user to choose. 
+	 * Gets user input.
+	 * Display the requested menu. 
+	 */
 	public void displayMenu() {
-		// TODO - implement MainMenuUI.displayMenu
 		do {
 			System.out.println("----------------------------------");
 			System.out.println("Select a function to perform: ");
@@ -82,6 +92,9 @@ public class MainMenuUI {
 		//throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Initialise the menu and tables in the restaurant. 
+	 */
 	public void initData() {
 		menu.initMenu();
 		/*
@@ -93,7 +106,6 @@ public class MainMenuUI {
 			// other operations
 			writer.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
 		Table.initTable();

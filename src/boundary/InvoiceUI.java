@@ -4,16 +4,25 @@ import java.util.Scanner;
 import entity.OrderInvoice;
 import entity.Order;
 
+/**
+ * Represents a boundary class to get user input to print the invoice.
+ * @author Shannon Chieng
+ * @version 1.0
+ * @since 2021-10-15
+ */
 public class InvoiceUI {
 
 	Scanner sc = new Scanner(System.in);
 	OrderInvoice orderInvoice = MainMenuUI.orderInvoice;
 	Order order = MainMenuUI.order;
 	
-	
+	/**
+	 * Gets user to input the table number.
+	 * Release the table to the customer. 
+	 * Gets user to input whether customer is a member or not. 
+	 * Prints the invoice. 10% discount is applied if customer is a member. 
+	 */
 	public void printInvoice() {
-		// TODO - implement InvoiceUI.printInvoice
-		//throw new UnsupportedOperationException();
 		if(order.getOrder().size()==0 && order.getSetOrder().size()==0) {
 			System.out.println("Order is empty, please add items to order!");
 			return;

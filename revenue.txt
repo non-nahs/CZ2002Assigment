@@ -1,2 +1,0 @@
-first line of revenue.txt
-second line of revenue.txt

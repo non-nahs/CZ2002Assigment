@@ -1,8 +1,8 @@
 package entity;
 
 import java.util.ArrayList;
-import java.util.Scanner;
-import java.nio.file.Paths;
+//import java.util.Scanner;
+//import java.nio.file.Paths;
 
 /**
  * Represents a Staff working in the restaurant
@@ -13,10 +13,30 @@ import java.nio.file.Paths;
 
 public class Staff {
 
+	/**
+	 * Identification number of this staff.
+	 */
 	private int staffID;
+	
+	/**
+	 * Name of this staff.
+	 */
 	private String staffName;
-	private boolean gender;  // false = female // true = male
+	
+	/**
+	 * Gender of this staff.
+	 * false = female, true = male
+	 */
+	private boolean gender; 
+	
+	/**
+	 * Job title of this staff.
+	 */
 	private String jobTitle;
+	
+	/**
+	 * List of all staffs working in the restaurant. 
+	 */
 	private static ArrayList<Staff> staffs  = new ArrayList<Staff>();
 	
 	/**
@@ -31,45 +51,6 @@ public class Staff {
 		this.staffName = n;
 		this.gender = g;
 		this.jobTitle = jd;
-	}
-
-	/**
-	 * Prints all lines in reservations.txt 
-	 * @exception e If fail to read reservations.txt
-	 */
-	public static void viewReservations() {
-		// https://java-programming.mooc.fi/part-4/3-files-and-reading-data
-		// we create a scanner for reading the file
-		try (Scanner scanner = new Scanner(Paths.get("reservations.txt"))) {
-			// we read the file until all lines have been read
-			while (scanner.hasNextLine()) {
-				// we read one line
-				String row = scanner.nextLine();
-				// we print the line that we read
-				System.out.println(row);
-			}
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-		}
-	}
-
-	/**
-	 * Prints all lines in revenue.txt 
-	 * @exception e If fail to read revenue.txt
-	 */
-	public static void viewSalesRevenue() {
-		// https://java-programming.mooc.fi/part-4/3-files-and-reading-data
-		try (Scanner scanner = new Scanner(Paths.get("revenue.txt"))) {
-			// we read the file until all lines have been read
-			while (scanner.hasNextLine()) {
-				// we read one line
-				String row = scanner.nextLine();
-				// we print the line that we read
-				System.out.println(row);
-			}
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-		}
 	}
 	
 	/**

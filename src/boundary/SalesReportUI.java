@@ -3,10 +3,21 @@ package boundary;
 import java.util.Scanner;
 import entity.SalesRevenue;
 
+/**
+ * Represents a boundary class to get user input to perform methods related to sales report. 
+ * @author Shannon Chieng
+ * @version 1.0
+ * @since 2021-10-15
+ */
 public class SalesReportUI {
 
 	Scanner sc = new Scanner(System.in);
 	
+	/**
+	 * Displays options user can choose in the menu.
+	 * Gets user input.
+	 * Display sales report based on user input. 
+	 */
 	public void printSaleReport() {
 		int choice;
 
@@ -31,13 +42,23 @@ public class SalesReportUI {
 			}
 	}
 
+	/**
+	 * Request user to input month.
+	 * Get user's input. 
+	 * Print requested month sales report. 
+	 */
 	private void printByMonth() {
 		SalesRevenue salesRevenue = MainMenuUI.salesRevenue;
 		System.out.println("Please enter month to view: (1-12)");
 		int month = sc.nextInt();
 		salesRevenue.printSalesReport(month, 0);
 	}
-
+	
+	/**
+	 * Request user to input month and day. Available day range changes based on selected month. 
+	 * Get user's input. 
+	 * Print requested day sales report. 
+	 */
 	private void printByDay() {
 		SalesRevenue salesRevenue = MainMenuUI.salesRevenue;
 		System.out.println("Please enter month to view: (1-12)");
