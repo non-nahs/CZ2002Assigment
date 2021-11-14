@@ -53,7 +53,6 @@ public class ReservationMgr {
 	 */
 	public void createReservation(String cusName,int cusContact, int pax, LocalTime bookingTime){
 		int failReserve = -1;
-		clearExpiry();
 		for(int i =0 ; i < reservationList.size(); i++){
 			if(cusName == reservationList.get(i).getCusName() && cusContact == reservationList.get(i).getCusContact()){
 				failReserve = 1;
@@ -61,28 +60,30 @@ public class ReservationMgr {
 			}
 		}
 		if(failReserve == 1){
-			System.out.print("Customer already has a booking reservation.");
+			System.out.println("Customer already has a booking reservation.");
 		}
 		else{
 			if(pax > 12 || pax < 1){
-				System.out.print("Sorry we cannot book the amount of people.");
+				System.out.println("Sorry we cannot book the amount of people.");
 			}
 			else{
 				if(bookingTime.isAfter(closingHours) || bookingTime.isBefore(openingHours)){ // outside operating hours
-					System.out.print("Sorry we are closed");
+					System.out.println("Sorry we are closed");
 				}
 				else{
 					if(testBook(pax)== -1){ //if booktest fail
-						System.out.print("Sorry there are no slots for booking at the momement.");
+						System.out.println("Sorry there are no slots for booking at the momement.");
 					}
 					else{
 						reservationList.add(new Reservation(cusName,cusContact,pax,bookingTime,MainMenuUI.table.get(testBook(pax))));
 						MainMenuUI.table.get(testBook(pax)).bookTable();
-						System.out.print("Reservation booked successfully");
+						System.out.println("Reservation booked successfully");
 					}
 				}
 			}
 		}
+
+		clearExpiry();
 
 	}
 	/**
@@ -108,18 +109,11 @@ public class ReservationMgr {
 
 	 ///// need to test if can clear back to back
 	private void clearExpiry() {
-		/*
-		for(int i = 0; i < reservationList.size();i++){
-			// assume reservation last for 15mins pass booking hour
-			if(reservationList.get(i).getBookingTime().plus(Duration.of(15,ChronoUnit.MINUTES)).isBefore(LocalTime.now())){
-				reservationList.remove(i);
-			}
-		}
-		*/
 		int i = 0;
 		while (i<reservationList.size()){
 			//System.out.println("reservation siz now " + reservationList.size());
 			if(reservationList.get(i).getBookingTime().plus(Duration.of(15,ChronoUnit.MINUTES)).isBefore(LocalTime.now())){
+				reservationList.get(i).getTable().releaseTable();
 				reservationList.remove(i);
 			}
 			else{
@@ -161,7 +155,6 @@ public class ReservationMgr {
 	public int testBook(int pax ){ // purpose is to return a tableID if table is found
 		int tableID = -1;
 		//remove expired
-		clearExpiry();
 
 		for(int i = 0; i <  MainMenuUI.table.size();i++){
 			if(!MainMenuUI.table.get(i).getTableStatus()){ //if table is not occupied
@@ -185,8 +178,6 @@ public class ReservationMgr {
 		clearExpiry();
 		int removed = -1;
 		for(int i = 0; i<reservationList.size();i++){
-			//System.out.print("cusName: " + cusName);
-			//System.out.print("cusContaact" + cusContact);
 			if(cusContact == reservationList.get(i).getCusContact() && cusName.equals(reservationList.get(i).getCusName())){
 				reservationList.get(i).getTable().releaseTable();
 				reservationList.remove(i);
@@ -196,10 +187,10 @@ public class ReservationMgr {
 		}
 
 		if(removed == -1){
-			System.out.print("Reservation removed unsuccessfully.");
+			System.out.println("Reservation removed unsuccessfully.");
 		}
 		else{
-			System.out.print("Reservation removed successfully.");
+			System.out.println("Reservation removed successfully.");
 		}
 
 	}
