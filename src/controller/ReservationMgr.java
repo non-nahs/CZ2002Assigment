@@ -10,17 +10,47 @@ import boundary.MainMenuUI;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+
+/**
+ * Controller Class to control the flow of Reservation entity class.
+ * 
+ * @author Yeo Kai Liang, Jasper
+ * @version 1.0
+ * @since 2021-10-15
+ */
+
 public class ReservationMgr {
-
-
-	// to be dump somewhere later if there is time
-	// this is an arrayList to store all reservations
-	public ArrayList<Reservation> reservationList = new ArrayList<Reservation>();
-	public LocalTime openingHours = LocalTime.parse("10:00",DateTimeFormatter.ofPattern(("HH:mm")));
-	public LocalTime closingHours = LocalTime.parse("22:00",DateTimeFormatter.ofPattern(("HH:mm")));
 	Scanner sc = new Scanner(System.in);
 
+	/**
+	 * This is an ArrayList of Reservation to store all reservations created.
+	 */
+	public ArrayList<Reservation> reservationList = new ArrayList<Reservation>();
+	/**
+	 * This is the opening hours of the restaurant.
+	 */
+	public LocalTime openingHours = LocalTime.parse("10:00",DateTimeFormatter.ofPattern(("HH:mm")));
+	/**
+	 * This is the closing hours of the restaurant.
+	 */
+	public LocalTime closingHours = LocalTime.parse("22:00",DateTimeFormatter.ofPattern(("HH:mm")));
+	
 
+	/**
+	 * This is the logic that ReservationMgr will flow when trying to create a new Reservation.
+	 * 
+	 * The method logic will check for the following conditions before creating a reservation:
+	 * Check if this customer has already made a reservation or not.
+	 * Check if this customer is not trying to reserve for lesser than 1 or more than 12 people
+	 * Check if this customer is not trying to reserve before opening hours or after closing hours
+	 * Check if there are any available tables for this customer to make a reservation
+	 * 
+	 * @param cusName		This is the customer's name trying to create a reservation
+	 * @param cusContact	This is the customer's contact trying to create a reservation
+	 * @param pax			This is the number of people customer is booking for
+	 * @param bookingTime	This is the expected arrival time of customer reaching the restaurant
+	 */
 	public void createReservation(String cusName,int cusContact, int pax, LocalTime bookingTime){
 		int failReserve = -1;
 		for(int i =0 ; i < reservationList.size(); i++){
@@ -54,7 +84,10 @@ public class ReservationMgr {
 		}
 
 	}
-
+	/**
+ 	* Displays all the reservations that are made. 
+	* Reservations that are past 15min of current time will be deleted first via clearExpiry() method.
+ 	*/
 	public void viewReservation() {
 		//remove expired
 		clearExpiry();
@@ -68,19 +101,39 @@ public class ReservationMgr {
 		}
 	}
 
+	/**
+	 * Check against all reservations made and remove all reservations that are past 15mins of expected arrival time.
+	 */
+
+	 ///// need to test if can clear back to back
 	private void clearExpiry() {
-		// basically this method del array entries that pass expired date
+		/*
 		for(int i = 0; i < reservationList.size();i++){
-			//System.out.println("the  date now is " + LocalDate.now());
-			//System.out.println("the time  now is " + LocalTime.now());
-			//System.out.println("the diff is " + Duration.between(LocalTime.now(), reservationList.get(i).getBookingTime()).toMinutes());
 			// assume reservation last for 15mins pass booking hour
 			if(reservationList.get(i).getBookingTime().plus(Duration.of(15,ChronoUnit.MINUTES)).isBefore(LocalTime.now())){
 				reservationList.remove(i);
 			}
 		}
+		*/
+		int i = 0;
+		while (i<reservationList.size()){
+			//System.out.println("reservation siz now " + reservationList.size());
+			if(reservationList.get(i).getBookingTime().plus(Duration.of(15,ChronoUnit.MINUTES)).isBefore(LocalTime.now())){
+				reservationList.remove(i);
+			}
+			else{
+				i++;
+			}
+		}
 	}
 
+	/**
+	 * Display all tables' information that are:
+	 * table number
+	 * table seat capacity
+	 * table occupied status (display Occupied if true, else display Unoccupied if false)
+	 * 
+	 */
 	public void checkTableAvail() { 
 		System.out.println("TableNo. \t TableCapacity \t TableStatus");
 		for (int i = 0; i < MainMenuUI.table.size(); i++){
@@ -96,6 +149,13 @@ public class ReservationMgr {
 		}
 	}
 
+	/**
+	 * This method will run through all the table to check for the best possible table available to accomodate for customer.
+	 * Method will try to fit customer with the exact same table seat capacity.
+	 * Method will assign customer to the next possible table if exact seat capacity tables are fully booked.
+	 * @param pax		This is the number of people customer is reserving the table for.
+	 * @return tableID	This returns the index from the ArrayList of tables created. (return -1 if no tables are available)
+	 */
 	public int testBook(int pax ){ // purpose is to return a tableID if table is found
 		int tableID = -1;
 		for(int i = 0; i <  MainMenuUI.table.size();i++){
@@ -110,11 +170,17 @@ public class ReservationMgr {
 	}
 	
 
+	/**
+	 * This method will manually remove a reservation and set the table's occupied status to false if requested from UI.
+	 * This method will require user to key in both customer's name and customer's number to delete the reservation.
+	 * @param cusName		This is the customer's name of the targeted reservation
+	 * @param cusContact	This is the customer's contact number of the targeted reservation
+	 */
 	public void removeReservation(String cusName, int cusContact) {
 		int removed = -1;
 		for(int i = 0; i<reservationList.size();i++){
-			System.out.print("cusName: " + cusName);
-			System.out.print("cusContaact" + cusContact);
+			//System.out.print("cusName: " + cusName);
+			//System.out.print("cusContaact" + cusContact);
 			if(cusContact == reservationList.get(i).getCusContact() && cusName.equals(reservationList.get(i).getCusName())){
 				reservationList.get(i).getTable().releaseTable();
 				reservationList.remove(i);
