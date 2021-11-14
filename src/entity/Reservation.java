@@ -45,10 +45,10 @@ public class Reservation {
 	 * @param table			This is table object reserved for customer
 	 * 
 	 */
-	public Reservation(String cusName, int cusContact, int p, LocalTime bT, Table table){
+	public Reservation(String cusName, int cusContact, int pax, LocalTime bT, Table table){
 		this.cusName = cusName;
 		this.cusContact = cusContact;
-		this.pax = p;
+		this.pax = pax;
 		this.bookingTime = bT;
 		this.customerTable = table;
 	}
