@@ -2,6 +2,8 @@ package entity;
 
 import java.util.ArrayList;
 
+import boundary.MainMenuUI;
+
 public class Order {
 
 	private static ArrayList<MenuItem> order  = new ArrayList<MenuItem>();
@@ -12,6 +14,13 @@ public class Order {
 		// TODO - implement Order.viewOrder
 		for (MenuItem m : order)
 			System.out.println(m.getName());
+	}
+
+	public void clearOrder() {
+		order.removeAll(order);
+		setOrder.removeAll(setOrder);
+		
+		pretaxTotal = 0;
 	}
 
 	public void addItem(MenuItem menuItem) {

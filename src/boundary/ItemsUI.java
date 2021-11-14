@@ -80,7 +80,7 @@ public class ItemsUI {
 		MenuItem tempItem = new MenuItem();
 		String name;
 		int i = 0;
-		LocalDate orderDate;
+		
 
 		System.out.println("----------------------------------");
 		System.out.println("Please enter name of menu item");
@@ -92,14 +92,14 @@ public class ItemsUI {
 			tempItem = tempMenuItems.get(i);
 			if (name.equals(tempItem.getName())) {
 				order.addItem(tempItem);
-				orderDate = LocalDate.now();
-				try (FileWriter writer = new FileWriter(MainMgr.PATH, true)){;  //add to promoUI
+				
+				/*try (FileWriter writer = new FileWriter(MainMgr.PATH, true)){;  //add to promoUI
 					writer.write(orderDate + "\t" + "ALC : " + tempItem.getName() + "\t" + tempItem.getPrice() + "\n");
 					writer.flush();
 					writer.close();
 				} catch (Exception e) {
 					System.out.println("Error: " + e.getMessage());
-				}
+				}*/
 				System.out.println("Added to order!");
 			}
 			i++;

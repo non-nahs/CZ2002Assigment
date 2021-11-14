@@ -3,6 +3,7 @@ package boundary;
 import java.util.ArrayList;
 import java.util.Scanner;
 import controller.DisplayMgr;
+import controller.MainMgr;
 import entity.Menu;
 import entity.MenuItem;
 import entity.Order;
@@ -15,6 +16,7 @@ public class PromotionUI {
 
 	Scanner sc = new Scanner(System.in);
 	DisplayMgr displayMgr = MainMenuUI.displayMgr;
+
 	Menu menu = MainMenuUI.menu;
 	Order order = MainMenuUI.order;
 
@@ -69,14 +71,14 @@ public class PromotionUI {
 			tempSet = tempSetPackages.get(i);
 			if(name.equals(tempSet.getPromotionName())){
 				order.addSet(tempSet);
-				orderDate = LocalDate.now();
-				try (FileWriter writer = new FileWriter("orderList.txt", true)){;  //add to promoUI
+				/*orderDate = LocalDate.now();
+				try (FileWriter writer = new FileWriter(MainMgr.PATH, true)){;  //add to promoUI
 					writer.write(orderDate + "\t" + "Set : " + tempSet.getPromotionName() + "\t" + tempSet.getPromotionPrice() + "\n");
 					writer.flush();
 					writer.close();
 				} catch (Exception e) {
 					System.out.println("Error: " + e.getMessage());
-				}
+				}*/
 				System.out.println("Added to order!");
 			}
 		}
