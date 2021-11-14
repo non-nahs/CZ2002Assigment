@@ -2,6 +2,7 @@ package boundary;
 
 import java.util.Scanner;
 import controller.DisplayMgr;
+import entity.SalesRevenue;
 
 public class SalesReportUI {
 
@@ -9,6 +10,8 @@ public class SalesReportUI {
 	DisplayMgr displayMgr = MainMenuUI.displayMgr;
 	
 	public void printSaleReport() {
+		SalesRevenue salesRevenue = MainMenuUI.salesRevenue;
+
 		int choice;
 
 		System.out.println("----------------------------------");
@@ -33,12 +36,30 @@ public class SalesReportUI {
 	}
 
 	private void printByMonth() {
-		System.out.println("Printing by month...");
-		displayMgr.getSalesReport();
+		SalesRevenue salesRevenue = MainMenuUI.salesRevenue;
+		System.out.println("Please enter month to view: (1-12)");
+		int month = sc.nextInt();
+		salesRevenue.printSalesReport(month, 0, true);
 	}
 
 	private void printByDay() {
-		System.out.println("Printing by day...");
-		displayMgr.getSalesReport();
+		SalesRevenue salesRevenue = MainMenuUI.salesRevenue;
+		System.out.println("Please enter month to view: (1-12)");
+		int month = sc.nextInt();
+		int day=0;
+		if (month == 2) {
+			System.out.println("Please enter day to view: (1-28)");
+			day = sc.nextInt();
+		}
+		else if (month == 4 || month == 6 || month == 9 || month == 11) {
+			System.out.println("Please enter day to view: (1-30)");
+			day = sc.nextInt();
+		}
+		else {
+			System.out.println("Please enter day to view: (1-31)");
+			day = sc.nextInt();
+		}
+		
+		salesRevenue.printSalesReport(month, day, false);
 	}
 }
